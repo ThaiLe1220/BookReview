@@ -11,39 +11,38 @@ struct OrderDetailView: View {
     @Binding var orderItem:OrderItem
     @Binding var presentSheet:Bool
     @Binding var newOrder:Bool
+    
     @State private var quantity:Int
-//    @State private var price:Double
-    @State private var doubleIngredient:Bool
-    @State private var bookCrust:BookCrust
+    @State private var bookFormat:BookFormat
     @State private var name:String
     @State private var comments:String
+    
     @EnvironmentObject var orders:OrderModel
     
     init(orderItem:Binding<OrderItem>,presentSheet:Binding<Bool>,newOrder:Binding<Bool>){
         self._orderItem = orderItem
-//        self.price = orderItem.price.wrappedValue
-        self.bookCrust = orderItem.preferredCrust.wrappedValue
-        self.quantity = Int(orderItem.quantity.wrappedValue)
-        self.doubleIngredient = orderItem.extraIngredients.wrappedValue
-        self.name = orderItem.name.wrappedValue
-        self.comments = orderItem.comments.wrappedValue
         self._presentSheet = presentSheet
         self._newOrder = newOrder
+        
+        self.quantity = Int(orderItem.quantity.wrappedValue)
+        self.bookFormat = orderItem.preferredFormat.wrappedValue
+        self.name = orderItem.name.wrappedValue
+        self.comments = orderItem.comments.wrappedValue
+
     }
     
     
     func updateOrder(){
         orderItem.quantity = quantity
-        orderItem.extraIngredients = doubleIngredient
         orderItem.name = name
 //        orderItem.price = price
-        orderItem.preferredCrust = bookCrust
+        orderItem.preferredFormat = bookFormat
         orderItem.comments = comments
     }
         
     var body: some View {
         VStack{
-            HStack {
+            HStack (alignment: .top) {
                 if let image = UIImage(named: "duneBook\(orderItem.item.id)"){
                     Image(uiImage: image)
                         .resizable()
@@ -58,42 +57,41 @@ struct OrderDetailView: View {
                         
                 }
                 Text(orderItem.item.name)
-                    .font(.title)
+                    .font(.title2)
                     .fontWeight(.semibold)
-                    .foregroundColor(.primary)
+//                    .foregroundColor()
                     .padding(.trailing)
+                Spacer()
+
             }
-            .background(.linearGradient(colors: [Color("Surf"),Color("Sky")], startPoint: .leading, endPoint: .trailing), in:Capsule())
+//            .background(.linearGradient(colors: [Color("DarkGold"),Color("CrayolaGold"), Color("Sky")], startPoint: .leading, endPoint: .trailing), in:Capsule())
+//            .padding(.leading, -20)
             
-          
-            TextField("Mark this pizza for", text: $name)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+//
+//            TextField("Mark this book for", text: $name)
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
+////                .padding()
             
             VStack{
-                Picker(selection: $bookCrust) {
-                    ForEach(BookCrust.allCases,id:\.self){crust in
-                        Text(crust.rawValue).tag(crust)
+                Picker(selection: $bookFormat) {
+                    ForEach(BookFormat.allCases ,id:\.self){format in
+                        format.rawValue != "" ? Text(format.rawValue).tag(format) : nil
                     }
                 } label: {
-                    Text("Book Crust" + bookCrust.rawValue)
+                    Text("Book Format" + bookFormat.rawValue)
                     
                 }
-                
                 .pickerStyle(SegmentedPickerStyle())
-                .foregroundColor(.black)
-                .background(.ultraThickMaterial)
-                
-                Toggle(isOn: $doubleIngredient){
-                    Text((doubleIngredient ? "Double Toppings" : "Single Toppings"))
-                }
+//                .foregroundColor(.black)
+//                .background(.regularMaterial)
+
                 
                 Stepper(value: $quantity, in: 1...10 ){
-                    Text("\(quantity) " + (quantity == 1 ? "pizza" : "pizzas"))
+                    Text("\(quantity) " + (quantity == 1 ? "item" : "items"))
+                        .padding(.leading, 8)
                 }
             }
-            .padding(5)
-            .background(.regularMaterial)
+            .background(.thinMaterial)
             .cornerRadius(3)
             
                 Text("Comments").font(.caption).foregroundColor(.secondary)
@@ -112,25 +110,30 @@ struct OrderDetailView: View {
                     }
                     presentSheet = false
                     }
-                    .padding()
-                    .padding([.leading,.trailing])
+                    .padding([.top,.bottom], 8)
+                    .padding([.leading,.trailing], 25)
                     .foregroundColor(.white)
-                    .background(.green,in: Capsule())
-                    .font(.title)
-                    .padding(.trailing,20)
-                    .shadow(radius:7,x:2,y:2)
+                    .background(Color("SealBrown"),in: Capsule())
+                    .font(.system(size: 20))
+                    .shadow(color: Color("DarkGold"),radius:2,x:2,y:2)
+                    .fontWeight(.semibold)
+                    .padding(.trailing,40)
+
+
                 Button("Cancel"){
                     presentSheet = false
                 }
-                .padding()
-                .padding([.leading,.trailing])
+                .padding([.top,.bottom], 8)
+                .padding([.leading,.trailing], 20)
                 .foregroundColor(.white)
-                .background(.red,in: Capsule())
-                .font(.title)
-                .shadow(radius:7,x:2,y:2)
+                .background(Color("SealBrown"),in: Capsule())
+                .font(.system(size: 20))
+                .fontWeight(.semibold)
+                .shadow(color: Color("DarkGold"),radius:2,x:2,y:2)
             }
         }
-        .padding()
+        .padding(8)
+        .background(.ultraThinMaterial)
         .navigationTitle("Your Order")
         
     }

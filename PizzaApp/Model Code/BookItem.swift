@@ -10,49 +10,43 @@ import Foundation
 /// Defines a menu item
 struct BookItem:Codable,Hashable,Identifiable{
     var id:Int
+    var author:String
     var category:BookCategory
     var name:String
     var description:String
-    var crust:BookCrust
-    var price:Double
+    var format:BookFormat
+    var price:Int
     var rating:Int
-    
-    /// Custom hash method necessary for navigation paths to use `Hashable` protocol
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-    /// Custom equals method necessary for navigation paths to use `Equatable` protocol
-    static func ==(lhs:BookItem, rhs:BookItem)->Bool{
-        lhs.id == rhs.id &&
-        lhs.category == rhs.category &&
-        lhs.description == rhs.description &&
-        lhs.crust == rhs.crust &&
-        lhs.name == rhs.name &&
-        lhs.price == rhs.price &&
-        lhs.rating == rhs.rating
-        
-    }
 }
 
-/// The categories of pizzas used
 enum BookCategory: String, Codable, CaseIterable {
-    case n = "Huli Pizza Originals"
-    case italian = "Italian Specialty pizzas"
-    case mainland = "Mainland Specialty Pizzas"
+    case art = "Art & Photography"
+//    case biographies = "Biographies"
+    case business = "Business & Money"
+//    case computer = "Computer & Technology"
+//    case education = "Education & Teaching"
+//    case food = "Cookbooks, Food & Wine"
+//    case health = "Health, Fitness & Diet"
+//    case law = "Law"
+//    case parent = "Parenting & Relationship"
+    case sciencefiction = "Science Fiction"
+    case selfhelp = "Self-Help"
+//    case sport = "Sports"
+//    case travel = "Travel"
+    case empty = ""
 }
 
-/// The basic types of pizza crust used.
-enum BookCrust: String,Codable,CaseIterable {
-    case neopolitan = "Neopolitan"
-    case newYork = "New York"
-    case calzone = "Calzone"
-    case deepDish = "Deep Dish"
-    case musubi = "Musubi"
+enum BookFormat: String,Codable,CaseIterable {
+    case kindle = "Kindle"
+    case audio = "Audiobook"
+    case hardcover = "Hardcover"
+    case paperpack = "Paperback"
+    case empty = ""
 }
 
 
-/// A test MenuItem for previews while composing views
-let testBookItem = BookItem(id: 0, category: .italian, name: "Dune (Chronicles, Book 1)", description: "Set on the desert planet Arrakis, Dune is the story of Paul Atreides−who would become known as Maud'Dib—and of a great family's ambition to bring to fruition humankind’s most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.", crust: .neopolitan, price: 240000, rating: 5)
+/// A test BookItem for previews while composing views
+let testBookItem = BookItem(id: 1, author: "Frank Herbert", category: .sciencefiction, name: "Dune (Chronicles, Book 1)", description: "Set on the desert planet Arrakis, Dune is the story of Paul Atreides−who would become known as Maud'Dib—and of a great family's ambition to bring to fruition humankind’s most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.", format: .hardcover, price: 240000, rating: 5)
 
 /// used when there is no Menu Item
-let noBookItem = BookItem(id: -1, category: .italian, name: "", description: "", crust: .neopolitan, price: 0, rating: 0)
+let noBookItem = BookItem(id: -1, author: "Frank Herbert", category: .empty, name: "", description: "", format: .empty, price: 0, rating: 0)

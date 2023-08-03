@@ -16,6 +16,7 @@ struct BookView2: View {
             List(book, selection: $selectedItem) { item in
                 NavigationLink(value: item) {
                     BookRowView(item: item)
+                        .padding([.leading, .trailing], -8)
                 }
             }
         } detail: {

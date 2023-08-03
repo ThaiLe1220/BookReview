@@ -13,30 +13,28 @@ struct OrderItem: Identifiable, Hashable {
     var item:BookItem
     
     var quantity: Int
-    var extraIngredients: Bool = false
     var name: String = ""
-    var preferredCrust:BookCrust
+    var preferredFormat:BookFormat
     var comments: String = ""
     
     init(id:Int, item:BookItem, quantity:Int = 1) {
         self.id = id
         self.item = item
         self.quantity = quantity
-        self.preferredCrust = item.crust
+        self.preferredFormat = item.format
     }
     
-    init(id: Int, item: BookItem, quantity: Int, extraIngredients: Bool, name: String, preferredCrust: BookCrust, comments: String) {
+    init(id: Int, item: BookItem, quantity: Int, name: String, preferredCrust: BookFormat, comments: String) {
         self.id = id
         self.item = item
         self.quantity = quantity
-        self.extraIngredients = extraIngredients
         self.name = name
-        self.preferredCrust = preferredCrust
+        self.preferredFormat = preferredCrust
         self.comments = comments
     }
     
-    var extPrice:Double {
-        item.price * Double(quantity)
+    var extPrice:Int {
+        item.price * quantity
     }
     
     func hash(into hasher: inout Hasher){

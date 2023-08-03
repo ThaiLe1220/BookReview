@@ -11,12 +11,12 @@ struct OrderItemView: View {
     @Binding var orderItem:OrderItem
     @State private var quantity = 1
     @State private var doubleIngredient = false
-    @State var bookCrust: BookCrust
+    @State var bookCrust: BookFormat
     @State private var name:String = ""
     @State private var comments:String = ""
     init (orderItem:Binding<OrderItem>) {
         self._orderItem = orderItem
-        self.bookCrust = orderItem.item.crust.wrappedValue
+        self.bookCrust = orderItem.item.format.wrappedValue
     }
     
     
@@ -33,7 +33,7 @@ struct OrderItemView: View {
                 Text("\(quantity) " + (quantity == 1 ? "pizza" : "pizzas"))
             }
             Picker(selection: $bookCrust) {
-                ForEach(BookCrust.allCases, id:\.self){crust in
+                ForEach(BookFormat.allCases, id:\.self){crust in
                     Text(crust.rawValue).tag(crust)
                 }
             } label: {

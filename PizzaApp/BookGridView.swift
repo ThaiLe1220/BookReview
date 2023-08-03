@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BookGridView: View {
-    @State private var favorites:[Int] = [0]
+    @State private var favorites:[Int] = []
     
     func book(id:Int) -> BookItem{
         book.first(where: {$0.id == id}) ?? noBookItem
@@ -25,11 +25,13 @@ struct BookGridView: View {
     var body: some View {
         VStack{
             Text("Favourite Books")
+                .fontWeight(.semibold)
+                .foregroundColor(Color("DarkGold"))
 
             ScrollView (.horizontal){
                 LazyHGrid(rows: hGridLayout) {
                     ForEach(favorites.sorted(), id:\.self) { itemId in
-                        FavoriteBookView(bookItem: book(id: itemId))
+                        FavoriteBookTileView(bookItem: book(id: itemId))
                             .frame(height: 120)
                             
                             .matchedGeometryEffect(id: itemId, in: nspace)
@@ -45,9 +47,12 @@ struct BookGridView: View {
                 }
             }
             .frame(height: 150)
-            .background(.thinMaterial)
 
             Text("Other Books")
+                .fontWeight(.semibold)
+                .foregroundColor(Color("DarkGold"))
+
+            
             ScrollView {
                 LazyVGrid(columns: columnLayout) {
                     ForEach(book) { item in
@@ -78,6 +83,7 @@ struct BookGridView: View {
             }
         }
 //        .animation(.easeOut(duration: 0.5), value: favorites)
+        .background(.thinMaterial)
 
     }
 }

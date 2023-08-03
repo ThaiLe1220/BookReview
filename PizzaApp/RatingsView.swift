@@ -13,15 +13,18 @@ struct RatingsView: View {
     var body: some View {
         HStack{
             ForEach(1...5, id:\.self) { circle in
-                Image(systemName: (circle <= rating) ? "star.circle.fill" : "circle")
+                //star.leadinghalf.filled
+                Image(systemName: (circle <= rating) ? "star.fill" : "star")
+        
             }
-            .padding(-2)
+            .foregroundColor(.yellow)
+            .padding(-5)
         }
     }
 }
 
 struct RatingsView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingsView(rating: 5)
+        RatingsView(rating: 4)
     }
 }

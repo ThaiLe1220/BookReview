@@ -26,13 +26,20 @@ struct BookItemTileView: View {
                         .scaledToFit()
                 }
             }
+            .shadow(color: Color("DarkGold"), radius: 2, x: 2, y: 2)
+
             
-            Text(bookItem.name).font(.system(size: 10))
-                .padding(4)
+            Text(bookItem.name)
+                .font(.system(size: 9))
+                .padding([.leading, .trailing], 6)
+                .frame(maxHeight: 24)
+                .fontWidth(.init(-0.15))
         }
         .cornerRadius(3)
-        .shadow(radius: 4, x: 4, y: 4)
+        .frame(width: 90)
+
     }
+    
 }
 
 struct BookItemTileView_Previews: PreviewProvider {

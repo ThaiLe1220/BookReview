@@ -11,16 +11,15 @@ struct BookDetailView: View {
     @State private var addedItem:Bool = false
     @Binding var item:BookItem?
     @EnvironmentObject var order:OrderModel
-    @State var bookCrust:BookCrust? = nil
+    @State var bookCrust:BookFormat? = nil
     @State private var doubleIngredient:Bool = false
     @State private  var quantity:Int = 1
     @State private var name:String = ""
     @State var orderItem = OrderItem(id: -99, item: noBookItem)
     func updateOrder(){
         orderItem.quantity = quantity
-        orderItem.extraIngredients = doubleIngredient
         orderItem.name = name
-        orderItem.preferredCrust = bookCrust ?? .neopolitan
+        orderItem.preferredFormat = bookCrust ?? .paperpack
     }
     
     var body: some View {
@@ -73,7 +72,7 @@ struct BookDetailView: View {
 
             HStack{
                 Picker(selection: $bookCrust ) {
-                        ForEach(BookCrust.allCases,id:\.self){crust in
+                        ForEach(BookFormat.allCases,id:\.self){crust in
                             Text(crust.rawValue).tag(crust)
                         }
                     } label: {
@@ -117,7 +116,7 @@ struct BookDetailView: View {
                         order.addOrder(orderItem: orderItem)
                     } label:{
                         Spacer()
-                        Text((item?.price ?? 0) * Double(quantity) ,format:.currency(code: "USD")).font(.title).bold()
+                        Text((item?.price ?? 0) * quantity ,format:.currency(code: "VND")).font(.title).bold()
                         Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
                         Spacer()
                     }

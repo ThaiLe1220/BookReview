@@ -22,6 +22,7 @@ struct BookView: View {
                         .onTapGesture {
                             selectedItem = item
                         }
+                        .padding([.leading, .trailing], -8)
                 }
             } header: {
                 Text(category.rawValue)

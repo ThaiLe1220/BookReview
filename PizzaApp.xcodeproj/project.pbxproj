@@ -15,7 +15,7 @@
 		95CC91B12A7AA2720069E606 /* OrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B02A7AA2720069E606 /* OrderItemView.swift */; };
 		95CC91B32A7AA99C0069E606 /* BookItemTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */; };
 		95CC91B52A7AAAD70069E606 /* BookGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B42A7AAAD70069E606 /* BookGridView.swift */; };
-		95CC91B72A7B56590069E606 /* FavoriteBookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B62A7B56590069E606 /* FavoriteBookView.swift */; };
+		95CC91B72A7B56590069E606 /* FavoriteBookTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */; };
 		95CC91B92A7B63D30069E606 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B82A7B63D30069E606 /* OrderDetailView.swift */; };
 		95CC91BB2A7B6E190069E606 /* BookView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91BA2A7B6E190069E606 /* BookView2.swift */; };
 		95CC91BD2A7B6F140069E606 /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91BC2A7B6F140069E606 /* BookDetailView.swift */; };
@@ -42,7 +42,7 @@
 		95CC91B02A7AA2720069E606 /* OrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemView.swift; sourceTree = "<group>"; };
 		95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemTileView.swift; sourceTree = "<group>"; };
 		95CC91B42A7AAAD70069E606 /* BookGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridView.swift; sourceTree = "<group>"; };
-		95CC91B62A7B56590069E606 /* FavoriteBookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBookView.swift; sourceTree = "<group>"; };
+		95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBookTileView.swift; sourceTree = "<group>"; };
 		95CC91B82A7B63D30069E606 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		95CC91BA2A7B6E190069E606 /* BookView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView2.swift; sourceTree = "<group>"; };
 		95CC91BC2A7B6F140069E606 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -72,6 +72,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9575B02E2A7C223E00F1C83D /* Developing */ = {
+			isa = PBXGroup;
+			children = (
+				95CC91B02A7AA2720069E606 /* OrderItemView.swift */,
+				95CC91BA2A7B6E190069E606 /* BookView2.swift */,
+				95CC91BC2A7B6F140069E606 /* BookDetailView.swift */,
+			);
+			path = Developing;
+			sourceTree = "<group>";
+		};
 		95CC91A52A7955860069E606 /* Model Code */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,24 +114,22 @@
 			children = (
 				95E0A5882A7315CC004F4635 /* PizzaAppApp.swift */,
 				95E0A58A2A7315CC004F4635 /* ContentView.swift */,
-				95CC91AE2A7A61BA0069E606 /* StatusBarView.swift */,
 				95E0A5A02A78BDFA004F4635 /* HeaderView.swift */,
+				95CC91AE2A7A61BA0069E606 /* StatusBarView.swift */,
+				95E0A59A2A78BD5C004F4635 /* BookItemView.swift */,
+				95E0A5982A78BCBC004F4635 /* BookView.swift */,
+				95E0A59C2A78BD89004F4635 /* BookRowView.swift */,
 				95E0A5962A78BC93004F4635 /* OrderView.swift */,
 				95E0A59E2A78BDA4004F4635 /* OrderRowView.swift */,
-				95CC91B02A7AA2720069E606 /* OrderItemView.swift */,
 				95CC91B82A7B63D30069E606 /* OrderDetailView.swift */,
 				95CC91B42A7AAAD70069E606 /* BookGridView.swift */,
 				95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */,
-				95CC91BA2A7B6E190069E606 /* BookView2.swift */,
-				95E0A5982A78BCBC004F4635 /* BookView.swift */,
-				95CC91BC2A7B6F140069E606 /* BookDetailView.swift */,
-				95CC91B62A7B56590069E606 /* FavoriteBookView.swift */,
-				95E0A59A2A78BD5C004F4635 /* BookItemView.swift */,
-				95E0A59C2A78BD89004F4635 /* BookRowView.swift */,
+				95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */,
 				95FB319B2A78D71D009AD4A2 /* RatingsView.swift */,
 				95CC91A52A7955860069E606 /* Model Code */,
 				95E0A58C2A7315CD004F4635 /* Assets.xcassets */,
 				DE3139722A7B8AEF00E066C2 /* bookList.json */,
+				9575B02E2A7C223E00F1C83D /* Developing */,
 				95E0A58E2A7315CD004F4635 /* Preview Content */,
 			);
 			path = PizzaApp;
@@ -208,7 +216,7 @@
 			files = (
 				95E0A5972A78BC93004F4635 /* OrderView.swift in Sources */,
 				95E0A5992A78BCBC004F4635 /* BookView.swift in Sources */,
-				95CC91B72A7B56590069E606 /* FavoriteBookView.swift in Sources */,
+				95CC91B72A7B56590069E606 /* FavoriteBookTileView.swift in Sources */,
 				95CC91BD2A7B6F140069E606 /* BookDetailView.swift in Sources */,
 				95CC91A72A7955A70069E606 /* OrderModel.swift in Sources */,
 				95E0A58B2A7315CC004F4635 /* ContentView.swift in Sources */,

@@ -54,14 +54,15 @@ struct BookItemView: View {
                                     .font(.system(size: 12))
                                 
                                 HStack {
-                                    Text("5")
                                     RatingsView(rating: item.rating)
+                                    Text("\(item.rating)").bold()
                                     Spacer()
                                     Text(item.price, format: .currency(code: "VND"))
                                         .fontWeight(.bold)
                                         .foregroundStyle(.orange)
                                 }
                                 .font(.system(size: 12))
+                                .padding(.leading, 5)
                                 
                             }
                             .frame(width: geometry.size.width * 0.6)
@@ -78,10 +79,9 @@ struct BookItemView: View {
                             .frame(width: geometry.size.width * 0.1)
                             .padding(.top, 20)
                             .foregroundStyle(.orange)
-                            //                        .padding([.leading, .trailing], 0)
                             .sheet(isPresented: $presentAlert){
                                 addedItem = true
-                                //                orders.addOrder(item, quantity: 1)
+                                orders.addOrder(item, quantity: 1)
                                 
                             } content: {
                                 OrderDetailView(orderItem: $order, presentSheet: $presentAlert, newOrder: $newOrder)
@@ -106,7 +106,7 @@ struct BookItemView: View {
                 }
             }
         }
-        .frame(height: 150)
+        .frame(height: 180)
     }
 }
 

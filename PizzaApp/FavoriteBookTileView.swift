@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct FavoriteBookView: View {
+struct FavoriteBookTileView: View {
     
     var bookItem: BookItem
     
@@ -24,16 +24,19 @@ struct FavoriteBookView: View {
                         .scaledToFit()
                 }
             }
-            .shadow(radius: 3, x:2, y:2)
-            Text(bookItem.name).font(.caption)
-                .padding(5)
-
+            .shadow(color: Color("DarkGold"), radius: 2, x:2, y:2)
+            Text(bookItem.name)
+                .font(.system(size: 8))
+                .padding([.leading, .trailing], 6)
+                .frame(maxHeight: 24)
+                .fontWidth(.init(-0.15))
         }
+        .frame(width: 80)
     }
 }
 
-struct FavoriteBookView_Previews: PreviewProvider {
+struct FavoriteBookTileView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteBookView(bookItem: testBookItem)
+        FavoriteBookTileView(bookItem: testBookItem)
     }
 }
