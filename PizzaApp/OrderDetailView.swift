@@ -14,7 +14,7 @@ struct OrderDetailView: View {
     @State private var quantity:Int
 //    @State private var price:Double
     @State private var doubleIngredient:Bool
-    @State private var pizzaCrust:PizzaCrust
+    @State private var bookCrust:BookCrust
     @State private var name:String
     @State private var comments:String
     @EnvironmentObject var orders:OrderModel
@@ -22,7 +22,7 @@ struct OrderDetailView: View {
     init(orderItem:Binding<OrderItem>,presentSheet:Binding<Bool>,newOrder:Binding<Bool>){
         self._orderItem = orderItem
 //        self.price = orderItem.price.wrappedValue
-        self.pizzaCrust = orderItem.preferredCrust.wrappedValue
+        self.bookCrust = orderItem.preferredCrust.wrappedValue
         self.quantity = Int(orderItem.quantity.wrappedValue)
         self.doubleIngredient = orderItem.extraIngredients.wrappedValue
         self.name = orderItem.name.wrappedValue
@@ -37,7 +37,7 @@ struct OrderDetailView: View {
         orderItem.extraIngredients = doubleIngredient
         orderItem.name = name
 //        orderItem.price = price
-        orderItem.preferredCrust = pizzaCrust
+        orderItem.preferredCrust = bookCrust
         orderItem.comments = comments
     }
         
@@ -71,12 +71,12 @@ struct OrderDetailView: View {
                 .padding()
             
             VStack{
-                Picker(selection: $pizzaCrust) {
-                    ForEach(PizzaCrust.allCases,id:\.self){crust in
+                Picker(selection: $bookCrust) {
+                    ForEach(BookCrust.allCases,id:\.self){crust in
                         Text(crust.rawValue).tag(crust)
                     }
                 } label: {
-                    Text("Pizza Crust" + pizzaCrust.rawValue)
+                    Text("Book Crust" + bookCrust.rawValue)
                     
                 }
                 
@@ -143,7 +143,7 @@ struct OrderDetailView_Previews: PreviewProvider {
     }
 }
 
-let noOrderItem = OrderItem(id: -1, item:noMenuItem)
+let noOrderItem = OrderItem(id: -1, item:noBookItem)
 
 extension OrderModel{
     func replaceOrder(id:Int,with item:OrderItem){

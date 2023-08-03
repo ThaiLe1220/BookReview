@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct StatusBarView: View {
-    @Binding var showOrders:Bool
-    @Binding var presentGrid:Bool
+
     @EnvironmentObject var orders: OrderModel
     
     
@@ -17,20 +16,6 @@ struct StatusBarView: View {
         HStack {
             Text("\(orders.orderItems.count) orders ")
             Spacer()
-            Button {
-                showOrders.toggle()
-            } label: {
-                Image (systemName: showOrders ? "cart" : "menucard").font(.title)
-            }
-            
-            if !showOrders {
-                Button {
-                    presentGrid.toggle()
-                } label: {
-                    Image (systemName: presentGrid ? "square.grid.3x2" : "list.bullet").font(.title)
-                }
-            .padding(.leading, 20)
-            }
             
             Spacer()
             
@@ -47,6 +32,6 @@ struct StatusBarView: View {
 
 struct StatusBarView_Previews: PreviewProvider {
     static var previews: some View {
-        StatusBarView(showOrders: .constant(false), presentGrid: .constant(true)).environmentObject(OrderModel())
+        StatusBarView().environmentObject(OrderModel())
     }
 }

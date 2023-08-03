@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MenuRowView: View {
-    var item:MenuItem
+struct BookRowView: View {
+    var item:BookItem
     
     var body: some View {
         GeometryReader{ geometry in
@@ -39,8 +39,8 @@ struct MenuRowView: View {
     }
 }
 
-struct MenuRowView_Previews: PreviewProvider {
+struct BookRowView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuRowView(item: testMenuItem)
+        BookRowView(item: testBookItem)
     }
 }

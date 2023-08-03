@@ -7,18 +7,18 @@
 
 import SwiftUI
 
-struct MenuView: View {
+struct BookView: View {
     
-    var menu:[MenuItem]
+    var book:[BookItem]
     
-    @Binding var selectedItem: MenuItem
+    @Binding var selectedItem: BookItem
     
     
     var body: some View {
-        List (MenuCategory.allCases, id:\.self){ category in
+        List (BookCategory.allCases, id:\.self){ category in
             Section {
-                ForEach(menu.filter({$0.category == category})){ item in
-                    MenuRowView(item: item)
+                ForEach(book.filter({$0.category == category})){ item in
+                    BookRowView(item: item)
                         .onTapGesture {
                             selectedItem = item
                         }
@@ -30,8 +30,8 @@ struct MenuView: View {
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
+struct BookView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menu: MenuModel().menu, selectedItem: .constant(testMenuItem))
+        BookView(book: BookModel().book, selectedItem: .constant(testBookItem))
     }
 }

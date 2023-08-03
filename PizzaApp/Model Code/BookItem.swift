@@ -8,12 +8,12 @@
 import Foundation
 
 /// Defines a menu item
-struct MenuItem:Codable,Hashable,Identifiable{
+struct BookItem:Codable,Hashable,Identifiable{
     var id:Int
-    var category:MenuCategory
+    var category:BookCategory
     var name:String
     var description:String
-    var crust:PizzaCrust
+    var crust:BookCrust
     var price:Double
     var rating:Int
     
@@ -22,7 +22,7 @@ struct MenuItem:Codable,Hashable,Identifiable{
         hasher.combine(id)
     }
     /// Custom equals method necessary for navigation paths to use `Equatable` protocol
-    static func ==(lhs:MenuItem, rhs:MenuItem)->Bool{
+    static func ==(lhs:BookItem, rhs:BookItem)->Bool{
         lhs.id == rhs.id &&
         lhs.category == rhs.category &&
         lhs.description == rhs.description &&
@@ -35,14 +35,14 @@ struct MenuItem:Codable,Hashable,Identifiable{
 }
 
 /// The categories of pizzas used
-enum MenuCategory: String, Codable, CaseIterable {
+enum BookCategory: String, Codable, CaseIterable {
     case n = "Huli Pizza Originals"
     case italian = "Italian Specialty pizzas"
     case mainland = "Mainland Specialty Pizzas"
 }
 
 /// The basic types of pizza crust used.
-enum PizzaCrust: String,Codable,CaseIterable {
+enum BookCrust: String,Codable,CaseIterable {
     case neopolitan = "Neopolitan"
     case newYork = "New York"
     case calzone = "Calzone"
@@ -52,7 +52,7 @@ enum PizzaCrust: String,Codable,CaseIterable {
 
 
 /// A test MenuItem for previews while composing views
-let testMenuItem = MenuItem(id: 0, category: .italian, name: "Huli Chicken Pizza", description: "The classic pizza that started it all", crust: .neopolitan, price: 14.99, rating: 5)
+let testBookItem = BookItem(id: 0, category: .italian, name: "Dune (Chronicles, Book 1)", description: "Set on the desert planet Arrakis, Dune is the story of Paul Atreides−who would become known as Maud'Dib—and of a great family's ambition to bring to fruition humankind’s most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.", crust: .neopolitan, price: 240000, rating: 5)
 
 /// used when there is no Menu Item
-let noMenuItem = MenuItem(id: -1, category: .italian, name: "World Pizza with Aloha", description: "We're a small growing chain based in Honolulu, serivng pizzas from around the world and with Hawaiian influence.", crust: .neopolitan, price: 0, rating: 0)
+let noBookItem = BookItem(id: -1, category: .italian, name: "", description: "", crust: .neopolitan, price: 0, rating: 0)

@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct FavoriteTileView: View {
+struct FavoriteBookView: View {
     
-    var menuItem: MenuItem
+    var bookItem: BookItem
     
     var body: some View {
         VStack {
             Group{
-                if let image = UIImage(named: "duneBook\(menuItem.id)"){
+                if let image = UIImage(named: "duneBook\(bookItem.id)"){
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
@@ -24,18 +24,16 @@ struct FavoriteTileView: View {
                         .scaledToFit()
                 }
             }
-            .clipShape(Capsule())
             .shadow(radius: 3, x:2, y:2)
-            Text(menuItem.name).font(.caption2)
+            Text(bookItem.name).font(.caption)
                 .padding(5)
-                .background(.regularMaterial)
 
         }
     }
 }
 
-struct FavoriteTileView_Previews: PreviewProvider {
+struct FavoriteBookView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoriteTileView(menuItem: testMenuItem)
+        FavoriteBookView(bookItem: testBookItem)
     }
 }

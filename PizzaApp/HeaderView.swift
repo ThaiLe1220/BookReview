@@ -17,44 +17,45 @@ struct HeaderView: View {
                 GeometryReader{ geometry in
                     ZStack (alignment: .topTrailing){
                         //                            Spacer()
-                        Image("surfBanner")
+                        Image("duneBanner1")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: geometry.size.width * 1,height: 100)
+                            .frame(width: geometry.size.width * 1,height: 140)
+                            .offset(y: -5)
                             .clipped()
+
     //                        .ignoresSafeArea()
                         //                            Spacer()
-                        Text("Thai Le Book Review")
-                            .font(.custom("Times", size: 30))
-    //                        .foregroundColor(Color.indigo)
-                            .foregroundStyle(.regularMaterial)
-                            .fontWeight(.semibold)
+//                        Text("Thai Le Book Review")
+//                            .font(.custom("Times", size: 30))
+//    //                        .foregroundColor(Color.indigo)
+//                            .foregroundStyle(.regularMaterial)
+//                            .fontWeight(.semibold)
                     }
                 }
             } else {
                 GeometryReader{ geometry in
                     HStack (alignment: .bottom){
                         //                            Spacer()
-                        Image("surfBanner")
+                        Image("duneBanner1")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: geometry.size.width * 0.6,height: 100)
+                            .frame(width: geometry.size.width * 0.6,height: 140)
                             .clipped()
 
     //                        .ignoresSafeArea()
-                        //                            Spacer()
-                        Text("Thai Le Book Review")
-                            .font(.custom("Times", size: 30))
-    //                        .foregroundColor(Color.indigo)
-                            .foregroundStyle(.pink)
-                            .fontWeight(.semibold)
+//                        //                            Spacer()
+//                        Text("Thai Le Book Review")
+//                            .font(.custom("Times", size: 30))
+//    //                        .foregroundColor(Color.indigo)
+//                            .foregroundStyle(.pink)
+//                            .fontWeight(.semibold)
                     }
                 }
             }
             
             }
-            .frame(height: 120)
-            .background(.ultraThinMaterial)
+            .frame(height: 140)
     }
 }
 

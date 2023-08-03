@@ -15,6 +15,7 @@ struct RatingsView: View {
             ForEach(1...5, id:\.self) { circle in
                 Image(systemName: (circle <= rating) ? "star.circle.fill" : "circle")
             }
+            .padding(-2)
         }
     }
 }

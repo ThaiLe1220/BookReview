@@ -10,22 +10,22 @@ import Foundation
 
 struct OrderItem: Identifiable, Hashable {
     var id: Int
-    var item:MenuItem
+    var item:BookItem
     
     var quantity: Int
     var extraIngredients: Bool = false
     var name: String = ""
-    var preferredCrust:PizzaCrust
+    var preferredCrust:BookCrust
     var comments: String = ""
     
-    init(id:Int, item:MenuItem, quantity:Int = 1) {
+    init(id:Int, item:BookItem, quantity:Int = 1) {
         self.id = id
         self.item = item
         self.quantity = quantity
         self.preferredCrust = item.crust
     }
     
-    init(id: Int, item: MenuItem, quantity: Int, extraIngredients: Bool, name: String, preferredCrust: PizzaCrust, comments: String) {
+    init(id: Int, item: BookItem, quantity: Int, extraIngredients: Bool, name: String, preferredCrust: BookCrust, comments: String) {
         self.id = id
         self.item = item
         self.quantity = quantity
@@ -56,6 +56,6 @@ struct OrderItem: Identifiable, Hashable {
 
 }
 
-let testOrderItem = OrderItem(id: 1, item: testMenuItem)
+let testOrderItem = OrderItem(id: 1, item: testBookItem)
 
-let testOrders = [testOrderItem, OrderItem (id: 2, item: MenuModel().menu[0], quantity: 2)]
+let testOrders = [testOrderItem, OrderItem (id: 2, item: BookModel().book[0], quantity: 2)]
