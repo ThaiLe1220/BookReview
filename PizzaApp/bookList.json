@@ -1,0 +1,148 @@
+[
+    {
+        "id":0,
+        "category":"Art & Photography",
+        "author":"Lilah Sturges",
+        "name":"Dune Official Movie Graphic Novel",
+        "headline":"Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time.",
+        "description":"Set on the desert planet Arrakis, Dune is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+        "format":"Paperback",
+        "price":200000,
+        "rating":4
+    },
+    {
+        "id":1,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Children of Dune (The Dune Chronicles, Book 1)",
+        "headline":"Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time.",
+        "description":"Set on the desert planet Arrakis, Dune is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+        "format":"Paperback",
+        "price":200000,
+        "rating":5
+    },
+    {
+        "id":2,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Dune Messiah (The Dune Chronicles, Book 2)",
+        "headline":"Book Two in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"Dune Messiah continues the story of Paul Atreides, better known—and feared—as the man christened Muad’Dib. As Emperor of the known universe, he possesses more power than a single man was ever meant to wield. Worshipped as a religious icon by the fanatical Fremen, Paul faces the enmity of the political houses he displaced when he assumed the throne—and a conspiracy conducted within his own sphere of influence.\nAnd even as House Atreides begins to crumble around him from the machinations of his enemies, the true threat to Paul comes to his lover, Chani, and the unborn heir to his family’s dynasty...",
+        "format":"Paperback",
+        "price":180000,
+        "rating":5
+    },
+    {
+        "id":3,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Children of Dune (The Dune Chronicles, Book 3)",
+        "headline":"Book Three in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"The Children of Dune are twin siblings Leto and Ghanima Atreides, whose father, the Emperor Paul Muad’Dib, disappeared in the desert wastelands of Arrakis nine years ago. Like their father, the twins possess supernormal abilities—making them valuable to their manipulative aunt Alia, who rules the Empire in the name of House Atreides.\nFacing treason and rebellion on two fronts, Alia’s rule is not absolute. The displaced House Corrino is plotting to regain the throne while the fanatical Fremen are being provoked into open revolt by the enigmatic figure known only as The Preacher. Alia believes that by obtaining the secrets of the twins’ prophetic visions, she can maintain control over her dynasty.\nBut Leto and Ghanima have their own plans for their visions—and their destinies....",
+        "format":"Paperback",
+        "price":180000,
+        "rating":5
+    },
+    {
+        "id":4,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"God Emperor of Dune (The Dune Chronicles, Book 4)",
+        "headline":"Book Four in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"Millennia have passed on Arrakis, and the once-desert planet is green with life. Leto Atreides, the son of the world’s savior, the Emperor Paul Muad’Dib, is still alive but far from human. To preserve humanity’s future, he sacrificed his own by merging with a sandworm, granting him near immortality as God Emperor of Dune for the past thirty-five hundred years.\nLeto’s rule is not a benevolent one. His transformation has made not only his appearance but his morality inhuman. A rebellion, led by Siona, a member of the Atreides family, has risen to oppose the despot’s rule. But Siona is unaware that Leto’s vision of a Golden Path for humanity requires her to fulfill a destiny she never wanted—or could possibly conceive....",
+        "format":"Paperback",
+        "price":180000,
+        "rating":4
+    },
+    {
+        "id":5,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Heretics of Dune (The Dune Chronicles, Book 5)",
+        "headline":"Book Five in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"Leto Atreides, the God Emperor of Dune, is dead. In the fifteen hundred years since his passing, the Empire has fallen into ruin. The great Scattering saw millions abandon the crumbling civilization and spread out beyond the reaches of known space. The planet Arrakis—now called Rakis—has reverted to its desert climate, and its great sandworms are dying.\nNow the Lost Ones are returning home in pursuit of power. And as these factions vie for control over the remnants of the Empire, a girl named Sheeana rises to prominence in the wastelands of Rakis, sending religious fervor throughout the galaxy. For she possesses the abilities of the Fremen sandriders—fulfilling a prophecy foretold by the late God Emperor....",
+        "format":"Paperback",
+        "price":200000,
+        "rating":5
+    },
+    {
+        "id":6,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Chapterhouse: Dune (The Dune Chronicles, Book 6)",
+        "headline":"Frank Herbert's Final Novel in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"The desert planet Arrakis, called Dune, has been destroyed. The remnants of the Old Empire have been consumed by the violent matriarchal cult known as the Honored Matres. Only one faction remains a viable threat to their total conquest—the Bene Gesserit, heirs to Dune’s power.\nUnder the leadership of Mother Superior Darwi Odrade, the Bene Gesserit have colonized a green world on the planet Chapterhouse and are turning it into a desert, mile by scorched mile. And once they’ve mastered breeding sandworms, the Sisterhood will control the production of the greatest commodity in the known galaxy—the spice melange. But their true weapon remains a man who has lived countless lifetimes—a man who served under the God Emperor Paul Muad’Dib....",
+        "format":"Paperback",
+        "price":200000,
+        "rating":5
+    },
+    {
+        "id":7,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Dune (Penguin Galaxy)",
+        "headline":"Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time.",
+        "description":"Set on the desert planet Arrakis, Dune is the story of Paul Atreides—who would become known as Muad'Dib—and of a great family's ambition to bring to fruition mankind's most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",
+        "format":"Hardcover",
+        "price":400000,
+        "rating":5
+    },
+    {
+        "id":8,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Dune Messiah: Deluxe Edition",
+        "headline":"Book Two in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"Dune Messiah continues the story of Paul Atreides, better known—and feared—as the man christened Muad’Dib. As Emperor of the known universe, he possesses more power than a single man was ever meant to wield. Worshipped as a religious icon by the fanatical Fremen, Paul faces the enmity of the political houses he displaced when he assumed the throne—and a conspiracy conducted within his own sphere of influence.\nAnd even as House Atreides begins to crumble around him from the machinations of his enemies, the true threat to Paul comes to his lover, Chani, and the unborn heir to his family’s dynasty...",
+        "format":"Hardcover",
+        "price":580000,
+        "rating":5
+    },
+    {
+        "id":9,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Children of Dune: Deluxe Edition",
+        "headline":"Book Three in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"The Children of Dune are twin siblings Leto and Ghanima Atreides, whose father, the Emperor Paul Muad’Dib, disappeared in the desert wastelands of Arrakis nine years ago. Like their father, the twins possess supernormal abilities—making them valuable to their manipulative aunt Alia, who rules the Empire in the name of House Atreides.\nFacing treason and rebellion on two fronts, Alia’s rule is not absolute. The displaced House Corrino is plotting to regain the throne while the fanatical Fremen are being provoked into open revolt by the enigmatic figure known only as The Preacher. Alia believes that by obtaining the secrets of the twins’ prophetic visions, she can maintain control over her dynasty.\nBut Leto and Ghanima have their own plans for their visions—and their destinies....",
+        "format":"Hardcover",
+        "price":580000,
+        "rating":5
+    },
+    {
+        "id":10,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"God Emperor of Dune",
+        "headline":"Book Four in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"Millennia have passed on Arrakis, and the once-desert planet is green with life. Leto Atreides, the son of the world’s savior, the Emperor Paul Muad’Dib, is still alive but far from human. To preserve humanity’s future, he sacrificed his own by merging with a sandworm, granting him near immortality as God Emperor of Dune for the past thirty-five hundred years.\nLeto’s rule is not a benevolent one. His transformation has made not only his appearance but his morality inhuman. A rebellion, led by Siona, a member of the Atreides family, has risen to oppose the despot’s rule. But Siona is unaware that Leto’s vision of a Golden Path for humanity requires her to fulfill a destiny she never wanted—or could possibly conceive....",
+        "format":"Hardcover",
+        "price":400000,
+        "rating":4
+    },
+    {
+        "id":11,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Heretics of Dune (Tutleback School & Library Binding Edition) (Dune Chronicles",
+        "headline":"Book Five in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"Leto Atreides, the God Emperor of Dune, is dead. In the fifteen hundred years since his passing, the Empire has fallen into ruin. The great Scattering saw millions abandon the crumbling civilization and spread out beyond the reaches of known space. The planet Arrakis—now called Rakis—has reverted to its desert climate, and its great sandworms are dying.\nNow the Lost Ones are returning home in pursuit of power. And as these factions vie for control over the remnants of the Empire, a girl named Sheeana rises to prominence in the wastelands of Rakis, sending religious fervor throughout the galaxy. For she possesses the abilities of the Fremen sandriders—fulfilling a prophecy foretold by the late God Emperor....",
+        "format":"Hardcover",
+        "price":1000000,
+        "rating":4
+    },
+    {
+        "id":12,
+        "category":"Science Fiction",
+        "author":"Frank Herbert",
+        "name":"Chapter House Dune ",
+        "headline":"Frank Herbert's Final Novel in the Magnificent Dune Chronicles—the Bestselling Science Fiction Adventure of All Time",
+        "description":"The desert planet Arrakis, called Dune, has been destroyed. The remnants of the Old Empire have been consumed by the violent matriarchal cult known as the Honored Matres. Only one faction remains a viable threat to their total conquest—the Bene Gesserit, heirs to Dune’s power.\nUnder the leadership of Mother Superior Darwi Odrade, the Bene Gesserit have colonized a green world on the planet Chapterhouse and are turning it into a desert, mile by scorched mile. And once they’ve mastered breeding sandworms, the Sisterhood will control the production of the greatest commodity in the known galaxy—the spice melange. But their true weapon remains a man who has lived countless lifetimes—a man who served under the God Emperor Paul Muad’Dib....",
+        "format":"Hardcover",
+        "price":520000,
+        "rating":5
+    },
+
+    
+]
+

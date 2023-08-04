@@ -10,52 +10,34 @@ import Foundation
 
 struct OrderItem: Identifiable, Hashable {
     var id: Int
-    var item:MenuItem
-    
+    var item:BookItem
     var quantity: Int
-    var extraIngredients: Bool = false
     var name: String = ""
-    var preferredCrust:PizzaCrust
+    var preferredFormat:BookFormat
     var comments: String = ""
     
-    init(id:Int, item:MenuItem, quantity:Int = 1) {
+    init(id:Int, item:BookItem, quantity:Int = 1) {
         self.id = id
         self.item = item
         self.quantity = quantity
-        self.preferredCrust = item.crust
+        self.preferredFormat = item.format
     }
     
-    init(id: Int, item: MenuItem, quantity: Int, extraIngredients: Bool, name: String, preferredCrust: PizzaCrust, comments: String) {
+    init(id: Int, item: BookItem, quantity: Int, name: String, preferredCrust: BookFormat, comments: String) {
         self.id = id
         self.item = item
         self.quantity = quantity
-        self.extraIngredients = extraIngredients
         self.name = name
-        self.preferredCrust = preferredCrust
+        self.preferredFormat = preferredCrust
         self.comments = comments
     }
     
-    var extPrice:Double {
-        item.price * Double(quantity)
+    var extPrice:Int {
+        item.price * quantity
     }
-    
-    func hash(into hasher: inout Hasher){
-        hasher.combine(id)
-    }
-    
-//    static func == (lhs:OrderItem, rhs:OrderItem) -> Bool {
-//        lhs.id = rhs.id &&
-//        lhs.item = rhs.item &&
-//        lhs.quantity = rhs.quantity &&
-//        lhs.extraIngredients = rhs.extraIngredients &&
-//        lhs.name = rhs.name &&
-//        lhs.preferredCrust = rhs.preferredCrust &&
-//        lhs.comments = rhs.comments &&
-//
-//    }
 
 }
 
-let testOrderItem = OrderItem(id: 1, item: testMenuItem)
+let testOrderItem = OrderItem(id: 1, item: testBookItem)
 
-let testOrders = [testOrderItem, OrderItem (id: 2, item: MenuModel().menu[0], quantity: 2)]
+let testOrders = [testOrderItem, OrderItem (id: 2, item: BookModel().book[0], quantity: 2)]

@@ -7,16 +7,11 @@
 
 import Foundation
 
-enum OrderType:String,CaseIterable{
-    case takeout = "Takeout"
-    case dineIn = "Dining In"
-    case delivery = "Delivery"
-}
+
 /// The Model to hold our orders.
 class OrderModel: ObservableObject{
     @Published var orderItems:[OrderItem] = []
     var customerName = "Customer Name"
-    var orderType:OrderType = .takeout
     private var lastID:Int = 0
     ///Use only for testing purposes
     init(){
@@ -27,24 +22,35 @@ class OrderModel: ObservableObject{
         //testing code end
         
     }
+    
+    
     ///Computes the count of order items
     var orderCount:Int{
         orderItems.count
     }
+    
     ///Computes the grand total of the orders.
-    var orderTotal:Double{
-        var total:Double = 0.0
+    var orderTotal:Int{
+        var total:Int = 0
         for item in orderItems{
             total += item.extPrice
         }
         return total
     }
-    ///Adds an Order with a menu item and quantity
-    func addOrder(_ item:MenuItem, quantity:Int){
+    
+//    ///Create order with a BookItem with quantity is 1
+//    func createOrder(_ item:BookItem) -> OrderItem{
+//        lastID += 1
+//        return OrderItem(id: (lastID) , item:item, quantity: 1)
+//    }
+
+    ///Adds an Order with a BookItem and quantity
+    func addOrder(_ item:BookItem, quantity:Int){
         lastID += 1
         let newOrder = OrderItem(id: (lastID) , item:item, quantity:quantity)
         orderItems.append(newOrder)
     }
+    
     /// Adds an Order from a OrderItem
     func addOrder(orderItem:OrderItem){
         lastID += 1
@@ -59,6 +65,7 @@ class OrderModel: ObservableObject{
             orderItems.remove(at: index)
         }
     }
+    
     /// Removes the last Order
     func removeLast(){
         orderItems.removeLast()

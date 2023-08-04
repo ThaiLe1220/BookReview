@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct MenuItemTileView: View {
-    var menuItem:MenuItem
+struct BookItemTileView: View {
+    var bookItem:BookItem
     
     var body: some View {
 
@@ -16,7 +16,7 @@ struct MenuItemTileView: View {
         VStack{
             Group{
                 if let image =
-                    UIImage(named: "duneBook\(menuItem.id)"){
+                    UIImage(named: "duneBook\(bookItem.id)"){
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
@@ -26,19 +26,24 @@ struct MenuItemTileView: View {
                         .scaledToFit()
                 }
             }
+            .shadow(color: Color("DarkGold"), radius: 2, x: 2, y: 2)
+
             
-            Text(menuItem.name).font(.caption2)
-                .padding(4)
+            Text(bookItem.name)
+                .font(.system(size: 9))
+                .padding([.leading, .trailing], 6)
+                .frame(maxHeight: 24)
+                .fontWidth(.init(-0.15))
         }
-        .background(Color("Sky").opacity(0.5))
-        .background(.regularMaterial)
-        .cornerRadius(10)
-        .shadow(radius: 4, x: 4, y: 4)
+        .cornerRadius(3)
+        .frame(width: 90)
+
     }
+    
 }
 
-struct MenuItemTileView_Previews: PreviewProvider {
+struct BookItemTileView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuItemTileView(menuItem: testMenuItem)
+        BookItemTileView(bookItem: testBookItem)
     }
 }

@@ -7,25 +7,24 @@
 
 import SwiftUI
 
-struct MenuDetailView: View {
+struct BookDetailView: View {
     @State private var addedItem:Bool = false
-    @Binding var item:MenuItem?
+    @Binding var item:BookItem?
     @EnvironmentObject var order:OrderModel
-    @State var pizzaCrust:PizzaCrust? = nil
+    @State var bookCrust:BookFormat? = nil
     @State private var doubleIngredient:Bool = false
     @State private  var quantity:Int = 1
     @State private var name:String = ""
-    @State var orderItem = OrderItem(id: -99, item: noMenuItem)
+    @State var orderItem = OrderItem(id: -99, item: noBookItem)
     func updateOrder(){
         orderItem.quantity = quantity
-        orderItem.extraIngredients = doubleIngredient
         orderItem.name = name
-        orderItem.preferredCrust = pizzaCrust ?? .neopolitan
+        orderItem.preferredFormat = bookCrust ?? .paperpack
     }
     
     var body: some View {
         VStack {
-            // The pizza description
+
             HStack {
                 VStack(alignment:.trailing) {
                     Text(item?.name ?? "Huli Pizza Company")
@@ -70,10 +69,10 @@ struct MenuDetailView: View {
             .background(.linearGradient(colors: [Color("Surf"),Color("Sky").opacity(0.1)], startPoint: .leading, endPoint: .trailing), in:Capsule())
             .shadow(color:.teal,radius: 5,x:8,y:8)
             .padding(.leading,30)
-            //customer changes
+
             HStack{
-                Picker(selection: $pizzaCrust ) {
-                        ForEach(PizzaCrust.allCases,id:\.self){crust in
+                Picker(selection: $bookCrust ) {
+                        ForEach(BookFormat.allCases,id:\.self){crust in
                             Text(crust.rawValue).tag(crust)
                         }
                     } label: {
@@ -105,19 +104,19 @@ struct MenuDetailView: View {
             .cornerRadius(10)
             .padding()
             Spacer()
-            //Pizza view of ordered pizza
+
             VStack{
                 HStack{
                     Text("Order for " + (name == "" ? "You" : name ) )
                         .font(.largeTitle)
                     Spacer(minLength: 150)
                     Button{
-                        orderItem = OrderItem(id: -999, item: item ?? noMenuItem)
+                        orderItem = OrderItem(id: -999, item: item ?? noBookItem)
                        updateOrder()
                         order.addOrder(orderItem: orderItem)
                     } label:{
                         Spacer()
-                        Text((item?.price ?? 0) * Double(quantity) ,format:.currency(code: "USD")).font(.title).bold()
+                        Text((item?.price ?? 0) * quantity ,format:.currency(code: "VND")).font(.title).bold()
                         Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
                         Spacer()
                     }
@@ -131,13 +130,13 @@ struct MenuDetailView: View {
                 .background(.thinMaterial, in: Capsule())
                 HStack(alignment:.top){
                     VStack(alignment:.leading){
-                        Text(item?.name ?? "Huli Pizza")
+                        Text(item?.name ?? "Dune Book")
                             .font(.largeTitle)
                         
-                        Text(pizzaCrust?.rawValue ?? "Neopolitan")
+                        Text(bookCrust?.rawValue ?? "Neopolitan")
                         Text( doubleIngredient ? "Double Toppings" : "")
-                        Text("\(quantity)" + (quantity == 1 ? " pizza" : " pizzas") )
-                            TextField("Pizza for Who?", text:$name)
+                        Text("\(quantity)" + (quantity == 1 ? " book" : " books") )
+                            TextField("Book for Who?", text:$name)
                                 .padding()
                             
                         
@@ -146,7 +145,7 @@ struct MenuDetailView: View {
                     .font(.title)
                     .padding()
                     .padding(.trailing,20)
-                    if let image = UIImage(named: "\(item?.id ?? -1)_lg"){
+                    if let image = UIImage(named: "duneBook\(item?.id ?? -1)"){
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
@@ -155,7 +154,7 @@ struct MenuDetailView: View {
                             .cornerRadius(15)
                         
                     } else {
-                        Image("surfboard_lg")
+                        Image("bookError")
                             .resizable()
                             .scaledToFit()
                             .rotationEffect(.degrees(180))
@@ -176,8 +175,8 @@ struct MenuDetailView: View {
     
 }
 
-struct MenuDetailView_Previews: PreviewProvider {
+struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuDetailView(item:.constant(testMenuItem)).environmentObject(OrderModel())
+        BookDetailView(item:.constant(testBookItem)).environmentObject(OrderModel())
     }
 }
