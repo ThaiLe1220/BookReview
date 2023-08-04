@@ -18,14 +18,22 @@ struct OrderRowView: View {
             }
             
             HStack(alignment:.firstTextBaseline){
-                Text (order.quantity, format: .number)
-                Text(order.item.price, format: .currency(code: "VND"))
-
+                HStack (spacing: 0) {
+                    Text ("Quantity: ")
+                    Text (order.quantity, format: .number)
+                }
+                .italic()
+                .font(.system(size: 16))
                 Spacer()
                 Text(order.extPrice, format: .currency(code: "VND"))
                     .fontWeight(.semibold)
+                    .foregroundColor(.orange)
             }
+            .padding(.top, -8)
         }
+        .padding([.trailing, .leading], 8)
+        .frame(height: 50)
+        .border(.black)
     }
 }
 

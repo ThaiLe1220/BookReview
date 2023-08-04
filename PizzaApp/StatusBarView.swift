@@ -16,18 +16,22 @@ struct StatusBarView: View {
         HStack {
             Text("\(orders.orderItems.count) orders ")
             Spacer()
-            
-            Spacer()
-            
+                        
             Label {
                 Text(orders.orderTotal, format: .currency(code: "VND"))
             } icon:{
                 Image(systemName: orders.orderItems.isEmpty ? "cart" : "cart.circle.fill")
             }
+            
 
         }
+        .frame(height: 30)
+        .border(.black)
         .foregroundStyle(.secondary)
-        .font(.title2)    }
+        .font(.title2)
+        .padding([.leading, .trailing], 8)
+        
+    }
 }
 
 struct StatusBarView_Previews: PreviewProvider {

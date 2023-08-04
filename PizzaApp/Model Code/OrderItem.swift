@@ -11,7 +11,6 @@ import Foundation
 struct OrderItem: Identifiable, Hashable {
     var id: Int
     var item:BookItem
-    
     var quantity: Int
     var name: String = ""
     var preferredFormat:BookFormat
@@ -36,21 +35,6 @@ struct OrderItem: Identifiable, Hashable {
     var extPrice:Int {
         item.price * quantity
     }
-    
-    func hash(into hasher: inout Hasher){
-        hasher.combine(id)
-    }
-    
-//    static func == (lhs:OrderItem, rhs:OrderItem) -> Bool {
-//        lhs.id = rhs.id &&
-//        lhs.item = rhs.item &&
-//        lhs.quantity = rhs.quantity &&
-//        lhs.extraIngredients = rhs.extraIngredients &&
-//        lhs.name = rhs.name &&
-//        lhs.preferredCrust = rhs.preferredCrust &&
-//        lhs.comments = rhs.comments &&
-//
-//    }
 
 }
 

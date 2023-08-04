@@ -21,6 +21,8 @@ struct ContentView: View {
 
             
             VStack  {
+                Spacer()
+                    .frame(height: 1)
 //                HeaderView()
 //                    .shadow(radius: 5)
 //                    .environment(\.colorScheme, .light)
@@ -30,6 +32,8 @@ struct ContentView: View {
                     .background(.thinMaterial)
 
                 BookView(book: book, selectedItem: $selectedItem)
+                    .padding([.leading, .trailing], -12)
+
             }
             .tabItem {
                 Label("Book", systemImage: "list.bullet")

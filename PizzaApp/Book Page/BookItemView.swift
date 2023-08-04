@@ -28,14 +28,14 @@ struct BookItemView: View {
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(3)
-                            .frame(height: 140)
+                            .frame(height: 160)
                             .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
                     } else {
                         Image("bookError")
                             .resizable()
                             .scaledToFit()
                             .cornerRadius(3)
-                            .frame(height: 140)
+                            .frame(height: 160)
                             .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
                         
                     }
@@ -72,6 +72,7 @@ struct BookItemView: View {
                             Button{
                                 presentAlert = true
                                 addedItem = true
+                                order = OrderItem(id: -1 , item: item, quantity: 1)
                             } label: {
                                 Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
                             }
@@ -81,8 +82,6 @@ struct BookItemView: View {
                             .foregroundStyle(.orange)
                             .sheet(isPresented: $presentAlert){
                                 addedItem = true
-                                orders.addOrder(item, quantity: 1)
-                                
                             } content: {
                                 OrderDetailView(orderItem: $order, presentSheet: $presentAlert, newOrder: $newOrder)
                             }
@@ -106,7 +105,7 @@ struct BookItemView: View {
                 }
             }
         }
-        .frame(height: 180)
+        .frame(height: 220)
     }
 }
 

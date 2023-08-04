@@ -38,7 +38,13 @@ class OrderModel: ObservableObject{
         return total
     }
     
-    ///Adds an Order with a menu item and quantity
+//    ///Create order with a BookItem with quantity is 1
+//    func createOrder(_ item:BookItem) -> OrderItem{
+//        lastID += 1
+//        return OrderItem(id: (lastID) , item:item, quantity: 1)
+//    }
+
+    ///Adds an Order with a BookItem and quantity
     func addOrder(_ item:BookItem, quantity:Int){
         lastID += 1
         let newOrder = OrderItem(id: (lastID) , item:item, quantity:quantity)

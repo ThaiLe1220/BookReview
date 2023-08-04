@@ -13,6 +13,18 @@ struct OrderView: View {
     
     var body: some View {
         VStack {
+            HStack {
+                Spacer()
+                Text("Your Order")
+                Spacer()
+            }
+            .font(.system(size: 25))
+            .foregroundColor(Color("SealBrown"))
+            .fontWeight(.semibold)
+            .frame(height: 20)
+            .padding(10)
+            .border(.blue)
+            
             
             NavigationStack {
                 List($orders.orderItems){ $order in
@@ -26,20 +38,31 @@ struct OrderView: View {
                             .padding([.leading,.trailing], 8)
                     }.navigationDestination(for: OrderItem.self) { order in
                         OrderDetailView(orderItem: $order, presentSheet: .constant(false), newOrder: .constant(false))
-                    }.navigationTitle("Your Order")
+                    }
+                    .navigationTitle("Your Order")
                     
                 }
             }
-            .padding(.top, 80)
+            .padding(.top, 20)
+            .background(.ultraThinMaterial)
             
-            Button("Delete Order") {
-                if !orders.orderItems.isEmpty{orders.removeLast()}
+            
+            HStack {
+                Spacer()
+                Button("Delete Order") {
+                    if !orders.orderItems.isEmpty{orders.removeLast()}
+                }
+                .padding([.top,.bottom], 8)
+                .padding([.leading,.trailing], 20)
+                .foregroundColor(.white)
+                .background(Color("DarkGold"),in: Capsule())
+                .font(.system(size: 20))
+                .fontWeight(.semibold)
+                .shadow(color: Color("DarkGold"),radius:2,x:2,y:2)
+
+                Spacer()
             }
-            .padding(5)
-            .background(.regularMaterial, in:Capsule())
-            .padding(10)
         }
-        .background(Color("Ocean").opacity(0.2))
         
     }
 }

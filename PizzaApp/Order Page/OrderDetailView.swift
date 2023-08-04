@@ -12,6 +12,7 @@ struct OrderDetailView: View {
     @Binding var presentSheet:Bool
     @Binding var newOrder:Bool
     
+    
     @State private var quantity:Int
     @State private var bookFormat:BookFormat
     @State private var name:String
@@ -31,11 +32,9 @@ struct OrderDetailView: View {
 
     }
     
-    
     func updateOrder(){
         orderItem.quantity = quantity
         orderItem.name = name
-//        orderItem.price = price
         orderItem.preferredFormat = bookFormat
         orderItem.comments = comments
     }
@@ -49,11 +48,15 @@ struct OrderDetailView: View {
                         .scaledToFit()
                         .padding([.top,.bottom],5)
                         .cornerRadius(15)
+                        .frame(width: 180)
                         
                 } else {
                     Image("bookError")
                         .resizable()
                         .scaledToFit()
+                        .padding([.top,.bottom],5)
+                        .cornerRadius(15)
+                        .frame(width: 180)
                         
                 }
                 Text(orderItem.item.name)
@@ -73,17 +76,15 @@ struct OrderDetailView: View {
 ////                .padding()
             
             VStack{
-                Picker(selection: $bookFormat) {
-                    ForEach(BookFormat.allCases ,id:\.self){format in
-                        format.rawValue != "" ? Text(format.rawValue).tag(format) : nil
-                    }
-                } label: {
-                    Text("Book Format" + bookFormat.rawValue)
-                    
-                }
-                .pickerStyle(SegmentedPickerStyle())
-//                .foregroundColor(.black)
-//                .background(.regularMaterial)
+//                Picker(selection: $bookFormat) {
+//                    ForEach(BookFormat.allCases ,id:\.self){format in
+//                        format.rawValue != "" ? Text(format.rawValue).tag(format) : nil
+//                    }
+//                } label: {
+//                    Text("Book Format" + bookFormat.rawValue)
+//
+//                }
+//                .pickerStyle(SegmentedPickerStyle())
 
                 
                 Stepper(value: $quantity, in: 1...10 ){
@@ -96,9 +97,10 @@ struct OrderDetailView: View {
             
                 Text("Comments").font(.caption).foregroundColor(.secondary)
                 TextEditor(text:$comments)
-                    .frame(maxHeight:200)
+                    .frame(maxHeight:220)
                     .clipShape(RoundedRectangle(cornerRadius: 3))
                     .shadow(radius: 1)
+            
             Spacer()
             HStack {
                 Button("Order"){
@@ -134,7 +136,7 @@ struct OrderDetailView: View {
         }
         .padding(8)
         .background(.ultraThinMaterial)
-        .navigationTitle("Your Order")
+//        .navigationTitle("Your Order")
         
     }
     
@@ -155,4 +157,5 @@ extension OrderModel{
             self.orderItems.insert(item, at: index)
         }
     }
+    
 }

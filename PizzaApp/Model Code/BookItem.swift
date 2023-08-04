@@ -36,7 +36,7 @@ enum BookCategory: String, Codable, CaseIterable {
     case empty = ""
 }
 
-enum BookFormat: String,Codable,CaseIterable {
+enum BookFormat: String, Codable, CaseIterable {
     case kindle = "Kindle"
     case audio = "Audiobook"
     case hardcover = "Hardcover"
@@ -44,9 +44,17 @@ enum BookFormat: String,Codable,CaseIterable {
     case empty = ""
 }
 
+enum BookSortCriteria: String, Codable, CaseIterable {
+    case nameAsc = "Name (Asc)"
+    case nameDesc = "Name(Desc)"
+    case idAsc = "ID (Asc)"
+    case idDesc = "ID(Desc)"
+    case priceAsc = "Price (Asc)"
+    case priceDesc = "Price()"
+}
 
 /// A test BookItem for previews while composing views
 let testBookItem = BookItem(id: 1, author: "Frank Herbert", category: .sciencefiction, name: "Dune (Chronicles, Book 1)", description: "Set on the desert planet Arrakis, Dune is the story of Paul Atreides−who would become known as Maud'Dib—and of a great family's ambition to bring to fruition humankind’s most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.", format: .hardcover, price: 240000, rating: 5)
 
 /// used when there is no Menu Item
-let noBookItem = BookItem(id: -1, author: "Frank Herbert", category: .empty, name: "", description: "", format: .empty, price: 0, rating: 0)
+let noBookItem = BookItem(id: -1, author: "", category: .empty, name: "", description: "", format: .empty, price: 0, rating: 0)
