@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9575B0342A7CCE3600F1C83D /* DropdownCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575B0332A7CCE3600F1C83D /* DropdownCategoryView.swift */; };
+		958364C02A7D3A7A00C2F51D /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958364BF2A7D3A7A00C2F51D /* WishlistItem.swift */; };
+		958364C22A7D3AC600C2F51D /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958364C12A7D3AC600C2F51D /* WishlistModel.swift */; };
+		958364C42A7D42CC00C2F51D /* ContentView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958364C32A7D42CC00C2F51D /* ContentView2.swift */; };
 		95CC91A72A7955A70069E606 /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91A62A7955A70069E606 /* OrderModel.swift */; };
 		95CC91A92A7955B50069E606 /* BookItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91A82A7955B50069E606 /* BookItem.swift */; };
 		95CC91AB2A7955C70069E606 /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91AA2A7955C70069E606 /* OrderItem.swift */; };
@@ -15,7 +18,7 @@
 		95CC91AF2A7A61BA0069E606 /* StatusBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91AE2A7A61BA0069E606 /* StatusBarView.swift */; };
 		95CC91B12A7AA2720069E606 /* OrderItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B02A7AA2720069E606 /* OrderItemView.swift */; };
 		95CC91B32A7AA99C0069E606 /* BookItemTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */; };
-		95CC91B52A7AAAD70069E606 /* BookGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B42A7AAAD70069E606 /* BookGridView.swift */; };
+		95CC91B52A7AAAD70069E606 /* BookWhislistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B42A7AAAD70069E606 /* BookWhislistView.swift */; };
 		95CC91B72A7B56590069E606 /* FavoriteBookTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */; };
 		95CC91B92A7B63D30069E606 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91B82A7B63D30069E606 /* OrderDetailView.swift */; };
 		95CC91BB2A7B6E190069E606 /* BookView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC91BA2A7B6E190069E606 /* BookView2.swift */; };
@@ -25,7 +28,7 @@
 		95E0A58D2A7315CD004F4635 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E0A58C2A7315CD004F4635 /* Assets.xcassets */; };
 		95E0A5902A7315CD004F4635 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95E0A58F2A7315CD004F4635 /* Preview Assets.xcassets */; };
 		95E0A5972A78BC93004F4635 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0A5962A78BC93004F4635 /* OrderView.swift */; };
-		95E0A5992A78BCBC004F4635 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0A5982A78BCBC004F4635 /* BookView.swift */; };
+		95E0A5992A78BCBC004F4635 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0A5982A78BCBC004F4635 /* BookListView.swift */; };
 		95E0A59B2A78BD5C004F4635 /* BookItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0A59A2A78BD5C004F4635 /* BookItemView.swift */; };
 		95E0A59D2A78BD89004F4635 /* BookRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0A59C2A78BD89004F4635 /* BookRowView.swift */; };
 		95E0A59F2A78BDA4004F4635 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E0A59E2A78BDA4004F4635 /* OrderRowView.swift */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		9575B0332A7CCE3600F1C83D /* DropdownCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownCategoryView.swift; sourceTree = "<group>"; };
+		958364BF2A7D3A7A00C2F51D /* WishlistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItem.swift; sourceTree = "<group>"; };
+		958364C12A7D3AC600C2F51D /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
+		958364C32A7D42CC00C2F51D /* ContentView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView2.swift; sourceTree = "<group>"; };
 		95CC91A62A7955A70069E606 /* OrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		95CC91A82A7955B50069E606 /* BookItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItem.swift; sourceTree = "<group>"; };
 		95CC91AA2A7955C70069E606 /* OrderItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
@@ -43,7 +49,7 @@
 		95CC91AE2A7A61BA0069E606 /* StatusBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarView.swift; sourceTree = "<group>"; };
 		95CC91B02A7AA2720069E606 /* OrderItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderItemView.swift; sourceTree = "<group>"; };
 		95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemTileView.swift; sourceTree = "<group>"; };
-		95CC91B42A7AAAD70069E606 /* BookGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridView.swift; sourceTree = "<group>"; };
+		95CC91B42A7AAAD70069E606 /* BookWhislistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookWhislistView.swift; sourceTree = "<group>"; };
 		95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteBookTileView.swift; sourceTree = "<group>"; };
 		95CC91B82A7B63D30069E606 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		95CC91BA2A7B6E190069E606 /* BookView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView2.swift; sourceTree = "<group>"; };
@@ -54,7 +60,7 @@
 		95E0A58C2A7315CD004F4635 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95E0A58F2A7315CD004F4635 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		95E0A5962A78BC93004F4635 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
-		95E0A5982A78BCBC004F4635 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		95E0A5982A78BCBC004F4635 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		95E0A59A2A78BD5C004F4635 /* BookItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookItemView.swift; sourceTree = "<group>"; };
 		95E0A59C2A78BD89004F4635 /* BookRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRowView.swift; sourceTree = "<group>"; };
 		95E0A59E2A78BDA4004F4635 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
@@ -89,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				95E0A59A2A78BD5C004F4635 /* BookItemView.swift */,
-				95E0A5982A78BCBC004F4635 /* BookView.swift */,
+				95E0A5982A78BCBC004F4635 /* BookListView.swift */,
 				95E0A59C2A78BD89004F4635 /* BookRowView.swift */,
 				95FB319B2A78D71D009AD4A2 /* RatingsView.swift */,
 			);
@@ -109,9 +115,10 @@
 		9575B0312A7CBC1D00F1C83D /* Wishlist Page */ = {
 			isa = PBXGroup;
 			children = (
-				95CC91B42A7AAAD70069E606 /* BookGridView.swift */,
+				95CC91B42A7AAAD70069E606 /* BookWhislistView.swift */,
 				95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */,
 				95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */,
+				958364C32A7D42CC00C2F51D /* ContentView2.swift */,
 			);
 			path = "Wishlist Page";
 			sourceTree = "<group>";
@@ -123,6 +130,8 @@
 				95CC91A82A7955B50069E606 /* BookItem.swift */,
 				95CC91A62A7955A70069E606 /* OrderModel.swift */,
 				95CC91AA2A7955C70069E606 /* OrderItem.swift */,
+				958364C12A7D3AC600C2F51D /* WishlistModel.swift */,
+				958364BF2A7D3A7A00C2F51D /* WishlistItem.swift */,
 			);
 			path = "Model Code";
 			sourceTree = "<group>";
@@ -242,8 +251,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E0A5972A78BC93004F4635 /* OrderView.swift in Sources */,
-				95E0A5992A78BCBC004F4635 /* BookView.swift in Sources */,
+				95E0A5992A78BCBC004F4635 /* BookListView.swift in Sources */,
 				95CC91B72A7B56590069E606 /* FavoriteBookTileView.swift in Sources */,
+				958364C02A7D3A7A00C2F51D /* WishlistItem.swift in Sources */,
 				95CC91BD2A7B6F140069E606 /* BookDetailView.swift in Sources */,
 				95CC91A72A7955A70069E606 /* OrderModel.swift in Sources */,
 				95E0A58B2A7315CC004F4635 /* ContentView.swift in Sources */,
@@ -256,12 +266,14 @@
 				95CC91AD2A7955D60069E606 /* BookModel.swift in Sources */,
 				95CC91BB2A7B6E190069E606 /* BookView2.swift in Sources */,
 				95CC91AF2A7A61BA0069E606 /* StatusBarView.swift in Sources */,
-				95CC91B52A7AAAD70069E606 /* BookGridView.swift in Sources */,
+				95CC91B52A7AAAD70069E606 /* BookWhislistView.swift in Sources */,
 				95CC91A92A7955B50069E606 /* BookItem.swift in Sources */,
 				95CC91B92A7B63D30069E606 /* OrderDetailView.swift in Sources */,
 				95E0A59B2A78BD5C004F4635 /* BookItemView.swift in Sources */,
 				95CC91B32A7AA99C0069E606 /* BookItemTileView.swift in Sources */,
+				958364C42A7D42CC00C2F51D /* ContentView2.swift in Sources */,
 				95E0A5A12A78BDFA004F4635 /* HeaderView.swift in Sources */,
+				958364C22A7D3AC600C2F51D /* WishlistModel.swift in Sources */,
 				9575B0342A7CCE3600F1C83D /* DropdownCategoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

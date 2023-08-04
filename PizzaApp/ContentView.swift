@@ -9,34 +9,37 @@ import SwiftUI
 
 struct ContentView: View {
     var book:[BookItem]
-    
+        
     @StateObject var orders: OrderModel = OrderModel()
+    @StateObject var wishlists: WishlistModel = WishlistModel()
+    
     @State private var showOrders: Bool = false
-    @State private var selectedItem: BookItem = noBookItem
+    @State private var selectedBookItem: BookItem = noBookItem
     @State private var presentGrid:Bool = false
     
     
     var body: some View {
         TabView{
-
-            
             VStack  {
-                Spacer()
-                    .frame(height: 1)
-//                HeaderView()
-//                    .shadow(radius: 5)
-//                    .environment(\.colorScheme, .light)
-                StatusBarView()
+                if (selectedBookItem.id != -1) {
+                    StatusBarView()
+                    BookItemView(selectedBookItem: $selectedBookItem, orders: orders, wishlists: wishlists)
+                        .animation(.easeInOut(duration: 0.5), value: wishlists.wishlistItems)
+                }
+                else{
+//                    Spacer()
+//                        .frame(height: 266)
+//                        .padding(0)
 
-                BookItemView( item: $selectedItem, orders: orders)
-                    .background(.thinMaterial)
-
-                BookView(book: book, selectedItem: $selectedItem)
+                }
+                BookListView(book: book, selectedItem: $selectedBookItem)
                     .padding([.leading, .trailing], -12)
-
             }
+
+            .background(.thinMaterial)
             .tabItem {
-                Label("Book", systemImage: "list.bullet")
+                Label("Book", systemImage: "book")
+                
             }
             VStack {
                 HeaderView()
@@ -56,7 +59,8 @@ struct ContentView: View {
                 HeaderView()
                     .shadow(radius: 5)
                     .environment(\.colorScheme, .light)
-                BookGridView(book: book, selectedItem: $selectedItem)
+                BookWhislistView(wishlists: wishlists, books: BookModel().book, selectedItem: $selectedBookItem)
+//                ContentView2(wishlists: wishlists)
 
             }
             .tabItem {

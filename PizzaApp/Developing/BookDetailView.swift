@@ -11,7 +11,7 @@ struct BookDetailView: View {
     @State private var addedItem:Bool = false
     @Binding var item:BookItem?
     @EnvironmentObject var order:OrderModel
-    @State var bookCrust:BookFormat? = nil
+    @State var bookFormat:BookFormat? = nil
     @State private var doubleIngredient:Bool = false
     @State private  var quantity:Int = 1
     @State private var name:String = ""
@@ -19,7 +19,6 @@ struct BookDetailView: View {
     func updateOrder(){
         orderItem.quantity = quantity
         orderItem.name = name
-        orderItem.preferredFormat = bookCrust ?? .paperpack
     }
     
     var body: some View {
@@ -71,7 +70,7 @@ struct BookDetailView: View {
             .padding(.leading,30)
 
             HStack{
-                Picker(selection: $bookCrust ) {
+                Picker(selection: $bookFormat ) {
                         ForEach(BookFormat.allCases,id:\.self){crust in
                             Text(crust.rawValue).tag(crust)
                         }
@@ -133,7 +132,7 @@ struct BookDetailView: View {
                         Text(item?.name ?? "Dune Book")
                             .font(.largeTitle)
                         
-                        Text(bookCrust?.rawValue ?? "Neopolitan")
+                        Text(bookFormat?.rawValue ?? "Neopolitan")
                         Text( doubleIngredient ? "Double Toppings" : "")
                         Text("\(quantity)" + (quantity == 1 ? " book" : " books") )
                             TextField("Book for Who?", text:$name)

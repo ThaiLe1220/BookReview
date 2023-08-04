@@ -13,14 +13,12 @@ struct OrderItem: Identifiable, Hashable {
     var item:BookItem
     var quantity: Int
     var name: String = ""
-    var preferredFormat:BookFormat
     var comments: String = ""
     
     init(id:Int, item:BookItem, quantity:Int = 1) {
         self.id = id
         self.item = item
         self.quantity = quantity
-        self.preferredFormat = item.format
     }
     
     init(id: Int, item: BookItem, quantity: Int, name: String, preferredCrust: BookFormat, comments: String) {
@@ -28,7 +26,6 @@ struct OrderItem: Identifiable, Hashable {
         self.item = item
         self.quantity = quantity
         self.name = name
-        self.preferredFormat = preferredCrust
         self.comments = comments
     }
     

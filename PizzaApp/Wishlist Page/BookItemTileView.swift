@@ -11,8 +11,6 @@ struct BookItemTileView: View {
     var bookItem:BookItem
     
     var body: some View {
-
-        
         VStack{
             Group{
                 if let image =
@@ -27,16 +25,15 @@ struct BookItemTileView: View {
                 }
             }
             .shadow(color: Color("DarkGold"), radius: 2, x: 2, y: 2)
-
             
             Text(bookItem.name)
                 .font(.system(size: 9))
                 .padding([.leading, .trailing], 6)
-                .frame(maxHeight: 24)
+                .frame(width: 90, height: 24)
                 .fontWidth(.init(-0.15))
         }
         .cornerRadius(3)
-        .frame(width: 90)
+        .frame(width: 90, height: 180)
 
     }
     

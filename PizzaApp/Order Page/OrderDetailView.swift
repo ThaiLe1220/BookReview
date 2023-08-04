@@ -14,7 +14,6 @@ struct OrderDetailView: View {
     
     
     @State private var quantity:Int
-    @State private var bookFormat:BookFormat
     @State private var name:String
     @State private var comments:String
     
@@ -26,16 +25,13 @@ struct OrderDetailView: View {
         self._newOrder = newOrder
         
         self.quantity = Int(orderItem.quantity.wrappedValue)
-        self.bookFormat = orderItem.preferredFormat.wrappedValue
         self.name = orderItem.name.wrappedValue
         self.comments = orderItem.comments.wrappedValue
-
     }
     
     func updateOrder(){
         orderItem.quantity = quantity
         orderItem.name = name
-        orderItem.preferredFormat = bookFormat
         orderItem.comments = comments
     }
         

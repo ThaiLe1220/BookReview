@@ -31,7 +31,7 @@ struct FavoriteBookTileView: View {
                 .frame(maxHeight: 24)
                 .fontWidth(.init(-0.15))
         }
-        .frame(width: 80)
+        .frame(width: 70)
     }
 }
 

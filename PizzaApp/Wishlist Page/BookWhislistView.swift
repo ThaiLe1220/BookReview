@@ -7,17 +7,20 @@
 
 import SwiftUI
 
-struct BookGridView: View {
-    @State private var favorites:[Int] = []
+struct BookWhislistView: View {
+//    @State private var favorites:[Int] = []
     
-    func book(id:Int) -> BookItem{
-        book.first(where: {$0.id == id}) ?? noBookItem
+    @ObservedObject var wishlists :WishlistModel
+
+    func getBookById(id:Int) -> BookItem{
+        books.first(where: {$0.id == id}) ?? noBookItem
     }
     
-    var book:[BookItem]
+    var books:[BookItem]
+    
     @Binding var selectedItem: BookItem
-    let hGridLayout = Array(repeating: GridItem(.fixed(50) , spacing: 10), count: 1)
-    let columnLayout = Array(repeating: GridItem(spacing: 20), count: 4)
+    let hGridLayout = Array(repeating: GridItem(.fixed(50) , spacing: 0), count: 1)
+    let columnLayout = Array(repeating: GridItem(spacing: -10), count: 4)
     
     @Namespace private var nspace
 
@@ -30,18 +33,15 @@ struct BookGridView: View {
 
             ScrollView (.horizontal){
                 LazyHGrid(rows: hGridLayout) {
-                    ForEach(favorites.sorted(), id:\.self) { itemId in
-                        FavoriteBookTileView(bookItem: book(id: itemId))
+                    ForEach(wishlists.wishlistItems, id:\.self) { wishlistItem in
+                        FavoriteBookTileView(bookItem: getBookById(id: wishlistItem.bookItem.id))
                             .frame(height: 120)
-                            
-                            .matchedGeometryEffect(id: itemId, in: nspace)
+                            .matchedGeometryEffect(id: wishlistItem.id, in: nspace)
                             .onTapGesture (count: 2) {
-                                if let index = favorites.firstIndex(where: {$0 == itemId}){
-                                    favorites.remove(at: index)
+                                wishlists.removeWishlist(id: wishlistItem.id)
                                 }
-                            }
                             .onTapGesture {
-                                selectedItem = book(id: itemId)
+                                selectedItem = getBookById(id: wishlistItem.bookItem.id)
                             }
                     }
                 }
@@ -55,41 +55,40 @@ struct BookGridView: View {
             
             ScrollView {
                 LazyVGrid(columns: columnLayout) {
-                    ForEach(book) { item in
-                        if !favorites.contains(item.id){
-                            
+                    ForEach(books) { item in
+                        if !wishlists.checkforItemInWishList(item){
                             BookItemTileView(bookItem: item)
-                                .animation(.easeOut(duration: 0.5), value: favorites)
+                                .animation(.easeOut(duration: 0.5), value: wishlists.wishlistItems)
                                 .matchedGeometryEffect(id: item.id, in: nspace)
                                 .frame(height: 120)
                                 .onTapGesture (count: 2) {
-                                    if !favorites.contains(item.id){
+                                    if !wishlists.checkforItemInWishList(item){
                                         withAnimation(.easeInOut){
-                                            favorites.append(item.id)
+                                            wishlists.addWishlist(item)
                                         }
                                     }
                                 }
                                 .onTapGesture {
-                                    
                                     selectedItem = item
                                 }
-                                .onLongPressGesture {
-                                    selectedItem = noBookItem
-                                    //                                }
-                                }
+//                                .onLongPressGesture {
+//                                    selectedItem = noBookItem
+//                                }
+                                .padding([.bottom,.top], 28)
+
+                            
                         }
                     }
                 }
             }
         }
-//        .animation(.easeOut(duration: 0.5), value: favorites)
         .background(.thinMaterial)
 
     }
 }
 
-struct BookGridView_Previews: PreviewProvider {
+struct BookWhislistView_Previews: PreviewProvider {
     static var previews: some View {
-        BookGridView(book: BookModel().book, selectedItem: .constant(testBookItem))
+        BookWhislistView(wishlists: WishlistModel(), books: BookModel().book, selectedItem: .constant(testBookItem))
     }
 }

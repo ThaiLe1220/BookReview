@@ -14,6 +14,8 @@ struct OrderItemView: View {
     @State var bookCrust: BookFormat
     @State private var name:String = ""
     @State private var comments:String = ""
+    
+    
     init (orderItem:Binding<OrderItem>) {
         self._orderItem = orderItem
         self.bookCrust = orderItem.item.format.wrappedValue

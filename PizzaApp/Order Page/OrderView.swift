@@ -10,7 +10,6 @@ import SwiftUI
 struct OrderView: View {
     @ObservedObject var orders :OrderModel
 
-    
     var body: some View {
         VStack {
             HStack {
