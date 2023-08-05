@@ -20,7 +20,6 @@ struct BookView2: View {
                 }
             }
         } detail: {
-            BookDetailView(item: $selectedItem)
         }
     }
 }

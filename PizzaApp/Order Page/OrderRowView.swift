@@ -13,7 +13,9 @@ struct OrderRowView: View {
     var body: some View {
         VStack () {
             HStack {
-                Text("Your Order item \(order.item.name)")
+                Text("\(order.bookItem.name)")
+                    .font(.system(size: 15))
+                    .foregroundColor(Color("DarkGold"))
                 Spacer()
             }
             
@@ -22,18 +24,19 @@ struct OrderRowView: View {
                     Text ("Quantity: ")
                     Text (order.quantity, format: .number)
                 }
+                .font(.system(size: 13))
                 .italic()
-                .font(.system(size: 16))
                 Spacer()
                 Text(order.extPrice, format: .currency(code: "VND"))
-                    .fontWeight(.semibold)
+                    .font(.system(size: 15, weight: .semibold))
                     .foregroundColor(.orange)
             }
             .padding(.top, -8)
         }
         .padding([.trailing, .leading], 8)
         .frame(height: 50)
-        .border(.black)
+        .fontDesign(.serif)
+
     }
 }
 

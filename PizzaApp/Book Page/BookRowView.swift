@@ -24,7 +24,7 @@ struct BookRowView: View {
                 VStack (alignment: .leading) {
                     HStack (alignment: .top) {
                         VStack {
-                            Text(item.name).font(.system(size: 16, weight: .semibold))
+                            Text(item.name).font(.system(size: 14, weight: .semibold))
                                 .foregroundColor(Color("DarkGold"))
                                 .padding(.top, -4)
 
@@ -43,17 +43,19 @@ struct BookRowView: View {
                         Text("\(item.rating)").bold()
                         Text(item.author)
                     }
-                    .font(.system(size: 12))
+                    .font(.system(size: 10))
                     .padding(.top, -8)
                     .padding(.leading, 4)
                     
                     Text("\(item.headline)")
-                        .font(.system(size: 12, weight: .medium))
+                        .font(.system(size: 11, weight: .regular))
                         .padding(.top, -4)
-                    
+                        .foregroundStyle(Color("SealBrown").opacity(0.8))
                 }
+                .fontDesign(.serif)
+
             }
-            .frame(width: geometry.size.width * 1,height: 90)
+            .frame(width: geometry.size.width * 0.99,height: 90)
         }
         .frame(height: 90)
     }

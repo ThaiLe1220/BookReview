@@ -12,38 +12,49 @@ import Foundation
 class OrderModel: ObservableObject{
     @Published var orderItems:[OrderItem] = []
     var customerName = "Customer Name"
-    private var lastID:Int = 0
-    ///Use only for testing purposes
-    init(){
-        // Testing Code: comment out for production
-//        orderItems.append(OrderItem(id:0,item: testMenuItem))
-//        orderItems.append(OrderItem(id:1,item: MenuModel().menu[3],quantity: 2))
-//        lastID = 1
-        //testing code end
-        
-    }
-    
+    var orderStatus: OrderStatus = OrderStatus.pending
+    var paymentStatus: PaymentStatus = PaymentStatus.paid
+    var shippingAdress: ShippingAddress = ShippingAddress()
     
     ///Computes the count of order items
-    var orderCount:Int{
+    var orderCount: Int{
         orderItems.count
     }
-    
+
     ///Computes the grand total of the orders.
-    var orderTotal:Int{
-        var total:Int = 0
+    var orderTotal: Int{
+        var total: Int = 0
         for item in orderItems{
             total += item.extPrice
         }
         return total
     }
     
-//    ///Create order with a BookItem with quantity is 1
-//    func createOrder(_ item:BookItem) -> OrderItem{
-//        lastID += 1
-//        return OrderItem(id: (lastID) , item:item, quantity: 1)
-//    }
-
+    enum OrderStatus: String, Codable, CaseIterable {
+        case pending = "Pending"
+        case processing = "Processing"
+        case shipped = "Shipped"
+        case delivered = "Delivered"
+        case empty = ""
+    }
+    
+    enum PaymentStatus: String, Codable, CaseIterable {
+        case paid = "Paid"
+        case unpaid = "Unpaid"
+        case empty = ""
+    }
+    
+    private var lastID: Int = 0
+    
+    func checkforItemInOrder(_ item: BookItem) -> Bool {
+        for orderItem in orderItems {
+            if orderItem.bookItem.id == item.id {
+                return true
+            }
+        }
+        return false
+    }
+    
     ///Adds an Order with a BookItem and quantity
     func addOrder(_ item:BookItem, quantity:Int){
         lastID += 1
@@ -52,15 +63,15 @@ class OrderModel: ObservableObject{
     }
     
     /// Adds an Order from a OrderItem
-    func addOrder(orderItem:OrderItem){
+    func addOrder(orderItem: OrderItem){
         lastID += 1
         var  newOrder = orderItem
         newOrder.id = lastID
         orderItems.append(newOrder)
     }
     
-    /// Removes an Order
-    func removeOrder(id:Int){
+    /// Removes an Order by Id
+    func removeOrderById(id: Int){
         if let index = orderItems.firstIndex(where: {$0.id == id}){
             orderItems.remove(at: index)
         }
@@ -70,4 +81,15 @@ class OrderModel: ObservableObject{
     func removeLast(){
         orderItems.removeLast()
     }
+    
+    
+}
+
+
+struct ShippingAddress {
+    let streetAdress: String = ""
+    let city: String = ""
+    let postalCode: String = ""
+    let country: String = ""
+    
 }

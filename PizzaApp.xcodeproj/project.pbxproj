@@ -83,10 +83,9 @@
 		9575B02E2A7C223E00F1C83D /* Developing */ = {
 			isa = PBXGroup;
 			children = (
+				958364C32A7D42CC00C2F51D /* ContentView2.swift */,
 				9575B0332A7CCE3600F1C83D /* DropdownCategoryView.swift */,
-				95CC91B02A7AA2720069E606 /* OrderItemView.swift */,
 				95CC91BA2A7B6E190069E606 /* BookView2.swift */,
-				95CC91BC2A7B6F140069E606 /* BookDetailView.swift */,
 			);
 			path = Developing;
 			sourceTree = "<group>";
@@ -95,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				95E0A59A2A78BD5C004F4635 /* BookItemView.swift */,
+				95CC91BC2A7B6F140069E606 /* BookDetailView.swift */,
 				95E0A5982A78BCBC004F4635 /* BookListView.swift */,
 				95E0A59C2A78BD89004F4635 /* BookRowView.swift */,
 				95FB319B2A78D71D009AD4A2 /* RatingsView.swift */,
@@ -106,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				95CC91B82A7B63D30069E606 /* OrderDetailView.swift */,
+				95CC91B02A7AA2720069E606 /* OrderItemView.swift */,
 				95E0A5962A78BC93004F4635 /* OrderView.swift */,
 				95E0A59E2A78BDA4004F4635 /* OrderRowView.swift */,
 			);
@@ -118,7 +119,6 @@
 				95CC91B42A7AAAD70069E606 /* BookWhislistView.swift */,
 				95CC91B22A7AA99C0069E606 /* BookItemTileView.swift */,
 				95CC91B62A7B56590069E606 /* FavoriteBookTileView.swift */,
-				958364C32A7D42CC00C2F51D /* ContentView2.swift */,
 			);
 			path = "Wishlist Page";
 			sourceTree = "<group>";

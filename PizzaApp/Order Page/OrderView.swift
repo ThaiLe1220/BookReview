@@ -12,57 +12,46 @@ struct OrderView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Spacer()
-                Text("Your Order")
-                Spacer()
-            }
-            .font(.system(size: 25))
-            .foregroundColor(Color("SealBrown"))
-            .fontWeight(.semibold)
-            .frame(height: 20)
-            .padding(10)
-            .border(.blue)
-            
-            
             NavigationStack {
+                HStack {
+                    Text("ORDER")
+                        .font(.system(size: 26))
+                        .fontWeight(.semibold)
+                        .padding(.leading, 16)
+                    Spacer()
+                }
+                
                 List($orders.orderItems){ $order in
-                    
                     NavigationLink(value: order){
                         OrderRowView(order: $order)
-                            .padding(4)
-                            .background(.regularMaterial, in:RoundedRectangle(cornerRadius: 4))
-                            .shadow(radius: 5)
-                            .padding(.bottom, 5)
-                            .padding([.leading,.trailing], 8)
-                    }.navigationDestination(for: OrderItem.self) { order in
-                        OrderDetailView(orderItem: $order, presentSheet: .constant(false), newOrder: .constant(false))
+                            .padding(.leading, -12)
                     }
-                    .navigationTitle("Your Order")
                     
+                    .navigationDestination(for: OrderItem.self) { order in
+                        OrderItemView(orderItem: $order)
+                    }
                 }
+                .padding(.top, -12)
             }
-            .padding(.top, 20)
-            .background(.ultraThinMaterial)
-            
-            
-            HStack {
-                Spacer()
-                Button("Delete Order") {
-                    if !orders.orderItems.isEmpty{orders.removeLast()}
-                }
-                .padding([.top,.bottom], 8)
-                .padding([.leading,.trailing], 20)
-                .foregroundColor(.white)
-                .background(Color("DarkGold"),in: Capsule())
-                .font(.system(size: 20))
-                .fontWeight(.semibold)
-                .shadow(color: Color("DarkGold"),radius:2,x:2,y:2)
-
-                Spacer()
-            }
+//
+//            HStack {
+//                Spacer()
+//                Button("Delete Order") {
+//                    if !orders.orderItems.isEmpty{orders.removeLast()}
+//                }
+//                .padding([.top,.bottom], 8)
+//                .padding([.leading,.trailing], 20)
+//                .foregroundColor(.white)
+//                .background(Color("DarkGold"),in: Capsule())
+//                .font(.system(size: 20, weight: .semibold))
+//                .shadow(color: Color("DarkGold"),radius:2,x:2,y:2)
+//
+//                Spacer()
+//            }
         }
-        
+        .background(.thinMaterial)
+        .fontDesign(.serif)
+
     }
 }
 

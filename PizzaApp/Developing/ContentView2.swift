@@ -43,6 +43,8 @@ struct ContentView2: View {
                 }
             }
             .navigationBarTitle("Wishlist")
+            .fontDesign(.serif)
+
         }
     }
 }

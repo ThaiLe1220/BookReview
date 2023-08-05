@@ -79,6 +79,8 @@ struct BookWhislistView: View {
             }
         }
         .background(.thinMaterial)
+        .fontDesign(.serif)
+
 
     }
 }

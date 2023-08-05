@@ -10,27 +10,27 @@ import Foundation
 
 struct OrderItem: Identifiable, Hashable {
     var id: Int
-    var item:BookItem
+    var bookItem: BookItem
     var quantity: Int
     var name: String = ""
     var comments: String = ""
     
     init(id:Int, item:BookItem, quantity:Int = 1) {
         self.id = id
-        self.item = item
+        self.bookItem = item
         self.quantity = quantity
     }
     
     init(id: Int, item: BookItem, quantity: Int, name: String, preferredCrust: BookFormat, comments: String) {
         self.id = id
-        self.item = item
+        self.bookItem = item
         self.quantity = quantity
         self.name = name
         self.comments = comments
     }
     
     var extPrice:Int {
-        item.price * quantity
+        bookItem.price * quantity
     }
 
 }

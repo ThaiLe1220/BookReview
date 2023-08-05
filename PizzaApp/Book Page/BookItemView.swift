@@ -8,124 +8,131 @@
 import SwiftUI
 
 struct BookItemView: View {
-    @State var bookmarked:Bool = false
-    @State private var addedItem:Bool = false
-    @State var presentOrderSheet :Bool = false
+    @State var bookmarked: Bool = false
+    @State var presentOrderSheet: Bool = false
     
-    @Binding var selectedBookItem:BookItem
+    @Binding var selectedBookItem: BookItem
     @ObservedObject var orders: OrderModel
-    @ObservedObject var wishlists :WishlistModel
+    @ObservedObject var wishlists: WishlistModel
     
-    @State private var newOrder:Bool = true
+    @State private var newOrder: Bool = true
     @State private var order = noOrderItem
     
     var body: some View {
         VStack{
             GeometryReader{ geometry in
-                HStack {
-                    Spacer()
-                    
-                    VStack {
-                        HStack (alignment: .top) {
-                            Image(systemName: "xmark")
-                                .onTapGesture {
-                                    withAnimation(.easeIn(duration: 0.3)) {
-                                        selectedBookItem = noBookItem
-                                    }
-                                }
-                                .font(.system(size: 16))
-                                .foregroundColor(Color("DarkGold"))
-                             
-                            
-                            Spacer()
-                            
-                            Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
-                                .onTapGesture {
-                                    bookmarked.toggle()
-                                    bookmarked ?  wishlists.addWishlist(selectedBookItem) : wishlists.removeWishlist(id: selectedBookItem.id)
-                                }
-                                .font(.system(size: 18))
-                                .foregroundColor(Color("DarkGold"))
-                        }
-                        .padding(.bottom, -4)
-                        
-                        if let image = UIImage(named: "book\(selectedBookItem.id)"){
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(3)
-                                .frame(height: 160)
-                                .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
-                        } 
+                NavigationStack {
+                    HStack {
                         Spacer()
-                    }
-                    .onAppear{
-                        bookmarked = wishlists.checkforItemInWishList(selectedBookItem)
-                    }
-                    
-                    
-                    Spacer()
-                    
-                    VStack {
-                        HStack (alignment: .top) {
-                            VStack (alignment: .leading) {
-                                Text(selectedBookItem.name)
-                                    .font(.system(size: 18, weight: .semibold))
-                                    .foregroundStyle(Color("SealBrown").opacity(0.7))
+                        
+                        VStack {
+                            HStack (alignment: .top) {
+                                Image(systemName: "xmark")
+                                    .onTapGesture {
+                                        withAnimation(.easeIn(duration: 0.3)) {
+                                            selectedBookItem = noBookItem
+                                        }
+                                    }
+                                    .font(.system(size: 16))
+                                    .foregroundColor(Color("DarkGold"))
                                 
-                                Text("By Frank Herbert")
-                                    .font(.system(size: 12))
+                                Spacer()
                                 
-                                HStack (alignment: .center) {
-                                    RatingsView(rating: selectedBookItem.rating)
-                                        .font(.system(size: 12))
-
-                                    Text("\(selectedBookItem.rating)")
-                                        .font(.system(size: 13, weight: .semibold))
+                                Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
+                                    .onTapGesture {
+                                        bookmarked.toggle()
+                                        bookmarked ?  wishlists.addWishlist(selectedBookItem) : wishlists.removeWishlist(id: selectedBookItem.id)
+                                    }
+                                    .font(.system(size: 18))
+                                    .foregroundColor(Color("DarkGold"))
+                            }
+                            .padding(.bottom, -4)
+                            
+                            if let image = UIImage(named: "book\(selectedBookItem.id)"){
+                                Image(uiImage: image)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .cornerRadius(3)
+                                    .frame(height: 160)
+                                    .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
+                            }
+                            Spacer()
+                        }
+                        .onAppear{
+                            bookmarked = wishlists.checkforItemInWishList(selectedBookItem)
+                        }
+                        
+                        
+                        Spacer()
+                        
+                        VStack {
+                            HStack (alignment: .top) {
+                                
+                                VStack (alignment: .leading) {
+                         
                                     
-                                    Spacer()
-                                    Text(selectedBookItem.price, format: .currency(code: "VND"))
-                                        .font(.system(size: 14, weight: .bold))
-                                        .foregroundStyle(.orange)
+                                    ZStack (alignment: .leading) {
+                                        Text(selectedBookItem.name)
+                                            .font(.system(size: 17, weight: .semibold))
+                                        .foregroundStyle(Color("SealBrown").opacity(0.7))
+                                    }
+                           
+
+                                    
+                                    Text("By \(selectedBookItem.author)")
+                                        .font(.system(size: 12))
+                                        .padding(.leading, 1)
+                                    
+                                    HStack (alignment: .center) {
+                                        RatingsView(rating: selectedBookItem.rating)
+                                            .font(.system(size: 12))
+
+                                        Text("\(selectedBookItem.rating)")
+                                            .font(.system(size: 13, weight: .semibold))
+                                        
+                                        Spacer()
+                                        Text(selectedBookItem.price, format: .currency(code: "VND"))
+                                            .font(.system(size: 14, weight: .bold))
+                                            .foregroundStyle(.orange)
+                                    }
+                                    .padding(.leading, 6)
+                                    .padding(.top, -4)
+
+                                    
                                 }
-                                .padding(.leading, 6)
-                                .padding(.top, -4)
+                                .frame(width: geometry.size.width * 0.6)
+                                .padding(.trailing,-12)
 
-                                
-                            }
-                            .frame(width: geometry.size.width * 0.6)
-                            .padding(.trailing,-12)
+                                Button{
+                                    presentOrderSheet = true
+                                    order = OrderItem(id: -1 , item: selectedBookItem, quantity: 1)
+                                } label: {
+                                    Image(systemName: orders.checkforItemInOrder(selectedBookItem) ? "cart.fill.badge.plus" : "cart.badge.plus")
+                                        .font(.system(size: 20))
+                                }
+                                .disabled(selectedBookItem.id < 0)
+                                .frame(width: geometry.size.width * 0.1)
+                                .foregroundStyle(.orange)
+                                .sheet(isPresented: $presentOrderSheet){
 
-                            Button{
-                                presentOrderSheet = true
-                                addedItem = true
-                                order = OrderItem(id: -1 , item: selectedBookItem, quantity: 1)
-                            } label: {
-                                Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
-                                    .font(.system(size: 20))
+                                } content: {
+                                    OrderDetailView(orderItem: $order, presentSheet: $presentOrderSheet, newOrder: $newOrder)
+                                }
                             }
-                            .disabled(selectedBookItem.id < 0)
-                            .frame(width: geometry.size.width * 0.1)
-                            .foregroundStyle(.orange)
-                            .sheet(isPresented: $presentOrderSheet){
-                                addedItem = true
-                            } content: {
-                                OrderDetailView(orderItem: $order, presentSheet: $presentOrderSheet, newOrder: $newOrder)
+                
+                            ScrollView   {
+                                Text(selectedBookItem.description)
+                                    .font(.system(size: 12))
                             }
+                            .foregroundStyle(Color("SealBrown").opacity(0.8))
+                            .frame(width: geometry.size.width * 0.7)
+                            .padding(.top, -4)
                         }
-                        
-                        
-                        ScrollView   {
-                            Text(selectedBookItem.description)
-                                .font(.custom("Georgia", fixedSize: 12))
-                        }
-                        .foregroundStyle(Color("SealBrown").opacity(0.9))
-                        .frame(width: geometry.size.width * 0.7)
-                        .padding(.top, -4)
                     }
                 }
             }
         }
+        .fontDesign(.serif)
         .onChange(of: selectedBookItem, perform: { newValue in
             bookmarked = wishlists.checkforItemInWishList(selectedBookItem)
         })

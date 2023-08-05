@@ -28,12 +28,14 @@ struct FavoriteBookTileView: View {
             .shadow(color: Color("DarkGold"), radius:2, x:2, y:2)
             
             Text(bookItem.name)
-                .font(.system(size: 9))
+                .font(.system(size: 8))
                 .padding([.leading, .trailing], 6)
                 .frame(maxHeight: 24)
                 .fontWidth(.init(-0.15))
         }
         .frame(width: 70)
+        .fontDesign(.serif)
+
     }
 }
 
