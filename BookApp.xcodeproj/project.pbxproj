@@ -54,7 +54,7 @@
 		95CC91B82A7B63D30069E606 /* OrderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 		95CC91BA2A7B6E190069E606 /* BookView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView2.swift; sourceTree = "<group>"; };
 		95CC91BC2A7B6F140069E606 /* BookDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
-		95E0A5852A7315CC004F4635 /* PizzaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95E0A5852A7315CC004F4635 /* BookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E0A5882A7315CC004F4635 /* BookLoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookLoverApp.swift; sourceTree = "<group>"; };
 		95E0A58A2A7315CC004F4635 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		95E0A58C2A7315CD004F4635 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		95E0A57C2A7315CC004F4635 = {
 			isa = PBXGroup;
 			children = (
-				95E0A5872A7315CC004F4635 /* PizzaApp */,
+				95E0A5872A7315CC004F4635 /* BookApp */,
 				95E0A5862A7315CC004F4635 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,12 +147,12 @@
 		95E0A5862A7315CC004F4635 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				95E0A5852A7315CC004F4635 /* PizzaApp.app */,
+				95E0A5852A7315CC004F4635 /* BookApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		95E0A5872A7315CC004F4635 /* PizzaApp */ = {
+		95E0A5872A7315CC004F4635 /* BookApp */ = {
 			isa = PBXGroup;
 			children = (
 				95E0A5882A7315CC004F4635 /* BookLoverApp.swift */,
@@ -168,7 +168,7 @@
 				9575B02E2A7C223E00F1C83D /* Developing */,
 				95E0A58E2A7315CD004F4635 /* Preview Content */,
 			);
-			path = PizzaApp;
+			path = BookApp;
 			sourceTree = "<group>";
 		};
 		95E0A58E2A7315CD004F4635 /* Preview Content */ = {
@@ -182,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		95E0A5842A7315CC004F4635 /* PizzaApp */ = {
+		95E0A5842A7315CC004F4635 /* BookApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 95E0A5932A7315CD004F4635 /* Build configuration list for PBXNativeTarget "PizzaApp" */;
+			buildConfigurationList = 95E0A5932A7315CD004F4635 /* Build configuration list for PBXNativeTarget "BookApp" */;
 			buildPhases = (
 				95E0A5812A7315CC004F4635 /* Sources */,
 				95E0A5822A7315CC004F4635 /* Frameworks */,
@@ -194,9 +194,9 @@
 			);
 			dependencies = (
 			);
-			name = PizzaApp;
+			name = BookApp;
 			productName = PizzaApp;
-			productReference = 95E0A5852A7315CC004F4635 /* PizzaApp.app */;
+			productReference = 95E0A5852A7315CC004F4635 /* BookApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 95E0A5802A7315CC004F4635 /* Build configuration list for PBXProject "PizzaApp" */;
+			buildConfigurationList = 95E0A5802A7315CC004F4635 /* Build configuration list for PBXProject "BookApp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -227,7 +227,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				95E0A5842A7315CC004F4635 /* PizzaApp */,
+				95E0A5842A7315CC004F4635 /* BookApp */,
 			);
 		};
 /* End PBXProject section */
@@ -454,7 +454,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		95E0A5802A7315CC004F4635 /* Build configuration list for PBXProject "PizzaApp" */ = {
+		95E0A5802A7315CC004F4635 /* Build configuration list for PBXProject "BookApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95E0A5912A7315CD004F4635 /* Debug */,
@@ -463,7 +463,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		95E0A5932A7315CD004F4635 /* Build configuration list for PBXNativeTarget "PizzaApp" */ = {
+		95E0A5932A7315CD004F4635 /* Build configuration list for PBXNativeTarget "BookApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				95E0A5942A7315CD004F4635 /* Debug */,
