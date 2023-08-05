@@ -23,7 +23,9 @@ struct BookListView: View {
                         ForEach(book.sorted(by: {sortingClosure(criteria: selectedSortCriteria, book1: $0, $1)})) { book in
                             BookRowView(item: book)
                                 .onTapGesture {
-                                    selectedItem = book
+                                    withAnimation(.easeInOut(duration: 0.6)) {
+                                        selectedItem = book
+                                    }
                                 }
                                 .padding(.leading, -8)
                                 .padding(.trailing, -24)
@@ -33,7 +35,9 @@ struct BookListView: View {
                         ForEach(book.filter({$0.category == selectedCategory}).sorted(by: {sortingClosure(criteria: selectedSortCriteria, book1: $0, $1)})) { book in
                             BookRowView(item: book)
                                 .onTapGesture {
-                                    selectedItem = book
+                                    withAnimation(.easeInOut(duration: 0.6)) {
+                                        selectedItem = book
+                                    }
                                 }
                                 .padding(.leading, -8)
                                 .padding(.trailing, -24)

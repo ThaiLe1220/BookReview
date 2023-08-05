@@ -13,21 +13,20 @@ struct BookRowView: View {
     var body: some View {
         GeometryReader{ geometry in
             HStack (alignment: .top){
-                if let image = UIImage(named: "duneBook\(item.id)"){
-                    Image(uiImage: image)
-                        .resizable()
-                        .frame(width: 60, height: 90)
-//                        .padding(.leading, -5)
+                if let image = UIImage(named: "book\(item.id)"){
+                    Image(uiImage: image).resizable().frame(width: 60, height: 90)
 
                 } else {
-                    Image("bookError").resizable().frame(width: 60, height: 60)
+                    Image("bookError").resizable().frame(width: 60, height: 90)
                 }
                 Spacer()
 
                 VStack (alignment: .leading) {
                     HStack (alignment: .top) {
                         VStack {
-                            Text(item.name).font(.system(size: 16))
+                            Text(item.name).font(.system(size: 16, weight: .semibold))
+                                .foregroundColor(Color("DarkGold"))
+                                .padding(.top, -4)
 
                         }
                         Spacer()
@@ -35,8 +34,7 @@ struct BookRowView: View {
                             Text(item.price, format: .currency(code: "VND"))
                         }
                         .frame(width: geometry.size.width * 0.25)
-                        .font(.system(size: 12))
-                        .fontWeight(.semibold)
+                        .font(.system(size: 12, weight: .semibold))
                         .foregroundStyle(.orange)
                     }
                     
@@ -46,9 +44,13 @@ struct BookRowView: View {
                         Text(item.author)
                     }
                     .font(.system(size: 12))
-                    .padding(.top, -4)
+                    .padding(.top, -8)
                     .padding(.leading, 4)
-                    Spacer()
+                    
+                    Text("\(item.headline)")
+                        .font(.system(size: 12, weight: .medium))
+                        .padding(.top, -4)
+                    
                 }
             }
             .frame(width: geometry.size.width * 1,height: 90)

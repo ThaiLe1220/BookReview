@@ -10,7 +10,7 @@ import SwiftUI
 struct BookItemView: View {
     @State var bookmarked:Bool = false
     @State private var addedItem:Bool = false
-    @State var presentAlert :Bool = false
+    @State var presentOrderSheet :Bool = false
     
     @Binding var selectedBookItem:BookItem
     @ObservedObject var orders: OrderModel
@@ -25,34 +25,38 @@ struct BookItemView: View {
                 HStack {
                     Spacer()
                     
-                    VStack (alignment: .trailing) {
-                        Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
-                            .onTapGesture {
-                                bookmarked.toggle()
-                                bookmarked ?  wishlists.addWishlist(selectedBookItem) : wishlists.removeWishlist(id: selectedBookItem.id)
-                            }
-                            .font(.system(size: 20))
-                            .foregroundColor(Color("DarkGold"))
-                            .padding(.top, 2)
-                            .padding(.bottom, -4)
+                    VStack {
+                        HStack (alignment: .top) {
+                            Image(systemName: "xmark")
+                                .onTapGesture {
+                                    withAnimation(.easeIn(duration: 0.3)) {
+                                        selectedBookItem = noBookItem
+                                    }
+                                }
+                                .font(.system(size: 16))
+                                .foregroundColor(Color("DarkGold"))
+                             
+                            
+                            Spacer()
+                            
+                            Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
+                                .onTapGesture {
+                                    bookmarked.toggle()
+                                    bookmarked ?  wishlists.addWishlist(selectedBookItem) : wishlists.removeWishlist(id: selectedBookItem.id)
+                                }
+                                .font(.system(size: 18))
+                                .foregroundColor(Color("DarkGold"))
+                        }
+                        .padding(.bottom, -4)
                         
-                        if let image = UIImage(named: "duneBook\(selectedBookItem.id)"){
+                        if let image = UIImage(named: "book\(selectedBookItem.id)"){
                             Image(uiImage: image)
                                 .resizable()
                                 .scaledToFit()
                                 .cornerRadius(3)
                                 .frame(height: 160)
                                 .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
-
-                        } else {
-                            Image("bookError")
-                                .resizable()
-                                .scaledToFit()
-                                .cornerRadius(3)
-                                .frame(height: 160)
-                                .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
-                            
-                        }
+                        } 
                         Spacer()
                     }
                     .onAppear{
@@ -90,22 +94,23 @@ struct BookItemView: View {
                                 
                             }
                             .frame(width: geometry.size.width * 0.6)
-                            
+                            .padding(.trailing,-12)
+
                             Button{
-                                presentAlert = true
+                                presentOrderSheet = true
                                 addedItem = true
                                 order = OrderItem(id: -1 , item: selectedBookItem, quantity: 1)
                             } label: {
                                 Image(systemName: addedItem ? "cart.fill.badge.plus" : "cart.badge.plus")
-                                    .font(.system(size: 24))
+                                    .font(.system(size: 20))
                             }
                             .disabled(selectedBookItem.id < 0)
                             .frame(width: geometry.size.width * 0.1)
                             .foregroundStyle(.orange)
-                            .sheet(isPresented: $presentAlert){
+                            .sheet(isPresented: $presentOrderSheet){
                                 addedItem = true
                             } content: {
-                                OrderDetailView(orderItem: $order, presentSheet: $presentAlert, newOrder: $newOrder)
+                                OrderDetailView(orderItem: $order, presentSheet: $presentOrderSheet, newOrder: $newOrder)
                             }
                         }
                         

@@ -14,6 +14,7 @@ struct BookItem:Codable,Hashable,Identifiable, Equatable{
     var category:BookCategory
     var name:String
     var description:String
+    var headline:String
     var format:BookFormat
     var price:Int
     var rating:Int
@@ -54,7 +55,7 @@ enum BookSortCriteria: String, Codable, CaseIterable {
 }
 
 /// A test BookItem for previews while composing views
-let testBookItem = BookItem(id: 1, author: "Frank Herbert", category: .sciencefiction, name: "Dune (Chronicles, Book 1)", description: "Set on the desert planet Arrakis, Dune is the story of Paul Atreides−who would become known as Maud'Dib—and of a great family's ambition to bring to fruition humankind’s most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.", format: .hardcover, price: 240000, rating: 5)
+let testBookItem = BookItem(id: 1, author: "Frank Herbert", category: .sciencefiction, name: "Dune (Chronicles, Book 1)", description: "Set on the desert planet Arrakis, Dune is the story of Paul Atreides−who would become known as Maud'Dib—and of a great family's ambition to bring to fruition humankind’s most ancient and unattainable dream.\nA stunning blend of adventure and mysticism, environmentalism and politics, Dune won the first Nebula Award, shared the Hugo Award, and formed the basis of what is undoubtedly the grandest epic in science fiction.",headline: "Frank Herbert’s classic masterpiece—a triumph of the imagination and one of the bestselling science fiction novels of all time", format: .hardcover, price: 240000, rating: 5)
 
 /// used when there is no Book Item
-let noBookItem = BookItem(id: -1, author: "", category: .empty, name: "", description: "", format: .empty, price: 0, rating: 0)
+let noBookItem = BookItem(id: -1, author: "", category: .empty, name: "", description: "", headline: "", format: .empty, price: 0, rating: 0)

@@ -41,12 +41,14 @@ struct BookWhislistView: View {
                                 wishlists.removeWishlist(id: wishlistItem.id)
                                 }
                             .onTapGesture {
-                                selectedItem = getBookById(id: wishlistItem.bookItem.id)
+                                withAnimation(.easeOut(duration: 0.5)){
+                                    selectedItem = getBookById(id: wishlistItem.bookItem.id)
+                                }
                             }
                     }
                 }
             }
-            .frame(height: 150)
+            .frame(height: 120)
 
             Text("Other Books")
                 .fontWeight(.semibold)
@@ -60,7 +62,6 @@ struct BookWhislistView: View {
                             BookItemTileView(bookItem: item)
                                 .animation(.easeOut(duration: 0.5), value: wishlists.wishlistItems)
                                 .matchedGeometryEffect(id: item.id, in: nspace)
-                                .frame(height: 120)
                                 .onTapGesture (count: 2) {
                                     if !wishlists.checkforItemInWishList(item){
                                         withAnimation(.easeInOut){
@@ -71,12 +72,7 @@ struct BookWhislistView: View {
                                 .onTapGesture {
                                     selectedItem = item
                                 }
-//                                .onLongPressGesture {
-//                                    selectedItem = noBookItem
-//                                }
-                                .padding([.bottom,.top], 28)
-
-                            
+           
                         }
                     }
                 }

@@ -17,7 +17,7 @@ struct HeaderView: View {
                 GeometryReader{ geometry in
                     ZStack (alignment: .topTrailing){
                         //                            Spacer()
-                        Image("duneBanner1")
+                        Image("banner1")
                             .resizable()
                             .scaledToFill()
                             .frame(width: geometry.size.width * 1,height: 140)
@@ -37,7 +37,7 @@ struct HeaderView: View {
                 GeometryReader{ geometry in
                     HStack (alignment: .bottom){
                         //                            Spacer()
-                        Image("duneBanner1")
+                        Image("banner1")
                             .resizable()
                             .scaledToFill()
                             .frame(width: geometry.size.width * 0.6,height: 140)

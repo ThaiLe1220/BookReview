@@ -38,7 +38,7 @@ struct OrderDetailView: View {
     var body: some View {
         VStack{
             HStack (alignment: .top) {
-                if let image = UIImage(named: "duneBook\(orderItem.item.id)"){
+                if let image = UIImage(named: "book\(orderItem.item.id)"){
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()

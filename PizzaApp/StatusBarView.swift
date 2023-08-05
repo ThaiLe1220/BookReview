@@ -14,21 +14,23 @@ struct StatusBarView: View {
     
     var body: some View {
         HStack {
-            Text("\(orders.orderItems.count) orders ")
+            Text(orders.orderItems.count < 2 ? " \(orders.orderItems.count) order" : "\(orders.orderItems.count) orders"  )
             Spacer()
                         
             Label {
                 Text(orders.orderTotal, format: .currency(code: "VND"))
+                    .foregroundColor(.orange)
             } icon:{
-                Image(systemName: orders.orderItems.isEmpty ? "cart" : "cart.circle.fill")
+                Image(systemName: orders.orderItems.isEmpty ? "cart" : "cart.fill")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundColor(.orange)
             }
             
 
         }
         .frame(height: 30)
-        .border(.black)
-        .foregroundStyle(.secondary)
-        .font(.title2)
+        .foregroundStyle(Color("DarkGold"))
+        .font(.system(size: 16, weight: .semibold))
         .padding([.leading, .trailing], 8)
         
     }

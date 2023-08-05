@@ -14,7 +14,7 @@ struct BookItemTileView: View {
         VStack{
             Group{
                 if let image =
-                    UIImage(named: "duneBook\(bookItem.id)"){
+                    UIImage(named: "book\(bookItem.id)"){
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
@@ -24,7 +24,7 @@ struct BookItemTileView: View {
                         .scaledToFit()
                 }
             }
-            .shadow(color: Color("DarkGold"), radius: 2, x: 2, y: 2)
+            .shadow(color: Color("DarkGold"), radius:2, x:2, y:2)
             
             Text(bookItem.name)
                 .font(.system(size: 9))
