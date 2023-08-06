@@ -11,7 +11,7 @@ import SwiftUI
 struct BookLoverApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(book: BookModel().book)
+            SplashView()
         }
     }
 }

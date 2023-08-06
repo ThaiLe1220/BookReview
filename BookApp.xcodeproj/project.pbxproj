@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		95714EE82A7F5CA7004FF121 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95714EE72A7F5CA7004FF121 /* SearchBar.swift */; };
+		95714EEA2A7F5CC2004FF121 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95714EE92A7F5CC2004FF121 /* SearchView.swift */; };
+		95714EEC2A7F67B4004FF121 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95714EEB2A7F67B4004FF121 /* SplashView.swift */; };
+		95714EEE2A7F79D7004FF121 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95714EED2A7F79D7004FF121 /* WelcomeView.swift */; };
 		9575B0342A7CCE3600F1C83D /* DropdownCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9575B0332A7CCE3600F1C83D /* DropdownCategoryView.swift */; };
 		958364C02A7D3A7A00C2F51D /* WishlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958364BF2A7D3A7A00C2F51D /* WishlistItem.swift */; };
 		958364C22A7D3AC600C2F51D /* WishlistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 958364C12A7D3AC600C2F51D /* WishlistModel.swift */; };
@@ -38,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		95714EE72A7F5CA7004FF121 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		95714EE92A7F5CC2004FF121 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		95714EEB2A7F67B4004FF121 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		95714EED2A7F79D7004FF121 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		9575B0332A7CCE3600F1C83D /* DropdownCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownCategoryView.swift; sourceTree = "<group>"; };
 		958364BF2A7D3A7A00C2F51D /* WishlistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItem.swift; sourceTree = "<group>"; };
 		958364C12A7D3AC600C2F51D /* WishlistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistModel.swift; sourceTree = "<group>"; };
@@ -80,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		95714EE62A7F5C67004FF121 /* Search Page */ = {
+			isa = PBXGroup;
+			children = (
+				95714EE72A7F5CA7004FF121 /* SearchBar.swift */,
+				95714EE92A7F5CC2004FF121 /* SearchView.swift */,
+			);
+			path = "Search Page";
+			sourceTree = "<group>";
+		};
 		9575B02E2A7C223E00F1C83D /* Developing */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,10 +122,10 @@
 		9575B0302A7CBC0100F1C83D /* Order Page */ = {
 			isa = PBXGroup;
 			children = (
-				95CC91B82A7B63D30069E606 /* OrderDetailView.swift */,
-				95CC91B02A7AA2720069E606 /* OrderItemView.swift */,
 				95E0A5962A78BC93004F4635 /* OrderView.swift */,
 				95E0A59E2A78BDA4004F4635 /* OrderRowView.swift */,
+				95CC91B82A7B63D30069E606 /* OrderDetailView.swift */,
+				95CC91B02A7AA2720069E606 /* OrderItemView.swift */,
 			);
 			path = "Order Page";
 			sourceTree = "<group>";
@@ -123,7 +140,7 @@
 			path = "Wishlist Page";
 			sourceTree = "<group>";
 		};
-		95CC91A52A7955860069E606 /* Model Code */ = {
+		95CC91A52A7955860069E606 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				95CC91AC2A7955D60069E606 /* BookModel.swift */,
@@ -133,7 +150,7 @@
 				958364C12A7D3AC600C2F51D /* WishlistModel.swift */,
 				958364BF2A7D3A7A00C2F51D /* WishlistItem.swift */,
 			);
-			path = "Model Code";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		95E0A57C2A7315CC004F4635 = {
@@ -156,13 +173,16 @@
 			isa = PBXGroup;
 			children = (
 				95E0A5882A7315CC004F4635 /* BookLoverApp.swift */,
+				95714EEB2A7F67B4004FF121 /* SplashView.swift */,
+				95714EED2A7F79D7004FF121 /* WelcomeView.swift */,
 				95E0A58A2A7315CC004F4635 /* ContentView.swift */,
 				95E0A5A02A78BDFA004F4635 /* HeaderView.swift */,
 				95CC91AE2A7A61BA0069E606 /* StatusBarView.swift */,
 				9575B02F2A7CBBD900F1C83D /* Book Page */,
 				9575B0302A7CBC0100F1C83D /* Order Page */,
+				95714EE62A7F5C67004FF121 /* Search Page */,
 				9575B0312A7CBC1D00F1C83D /* Wishlist Page */,
-				95CC91A52A7955860069E606 /* Model Code */,
+				95CC91A52A7955860069E606 /* Model */,
 				95E0A58C2A7315CD004F4635 /* Assets.xcassets */,
 				DE3139722A7B8AEF00E066C2 /* bookList.json */,
 				9575B02E2A7C223E00F1C83D /* Developing */,
@@ -263,11 +283,14 @@
 				95CC91B12A7AA2720069E606 /* OrderItemView.swift in Sources */,
 				95E0A59D2A78BD89004F4635 /* BookRowView.swift in Sources */,
 				95E0A59F2A78BDA4004F4635 /* OrderRowView.swift in Sources */,
+				95714EE82A7F5CA7004FF121 /* SearchBar.swift in Sources */,
+				95714EEE2A7F79D7004FF121 /* WelcomeView.swift in Sources */,
 				95CC91AD2A7955D60069E606 /* BookModel.swift in Sources */,
 				95CC91BB2A7B6E190069E606 /* BookView2.swift in Sources */,
 				95CC91AF2A7A61BA0069E606 /* StatusBarView.swift in Sources */,
 				95CC91B52A7AAAD70069E606 /* BookWhislistView.swift in Sources */,
 				95CC91A92A7955B50069E606 /* BookItem.swift in Sources */,
+				95714EEA2A7F5CC2004FF121 /* SearchView.swift in Sources */,
 				95CC91B92A7B63D30069E606 /* OrderDetailView.swift in Sources */,
 				95E0A59B2A78BD5C004F4635 /* BookItemView.swift in Sources */,
 				95CC91B32A7AA99C0069E606 /* BookItemTileView.swift in Sources */,
@@ -275,6 +298,7 @@
 				95E0A5A12A78BDFA004F4635 /* HeaderView.swift in Sources */,
 				958364C22A7D3AC600C2F51D /* WishlistModel.swift in Sources */,
 				9575B0342A7CCE3600F1C83D /* DropdownCategoryView.swift in Sources */,
+				95714EEC2A7F67B4004FF121 /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,7 +426,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PizzaApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BookApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -430,7 +454,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PizzaApp/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"BookApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

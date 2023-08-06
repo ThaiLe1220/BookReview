@@ -45,7 +45,7 @@ struct ContentView: View {
 
             VStack {
                 ZStack {
-                    Text("Hello Search")
+                    SearchView(book: book, orders: orders, wishlists: wishlists)
                 }
             }
             .tabItem {

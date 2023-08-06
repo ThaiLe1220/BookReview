@@ -11,7 +11,7 @@ struct BookDetailView: View {
     @State var bookmarked:Bool = false
     @State var presentOrderSheet :Bool = false
     
-    @Binding var selectedBookItem:BookItem
+    var selectedBookItem:BookItem
     @ObservedObject var orders: OrderModel
     @ObservedObject var wishlists :WishlistModel
     
@@ -136,6 +136,6 @@ struct BookDetailView: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(selectedBookItem: .constant(testBookItem), orders: OrderModel(), wishlists: WishlistModel())
+        BookDetailView(selectedBookItem: testBookItem, orders: OrderModel(), wishlists: WishlistModel())
     }
 }
