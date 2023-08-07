@@ -1,12 +1,16 @@
-//
-//  OrderModel.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 01/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import Foundation
-
 
 /// The Model to hold our orders.
 class OrderModel: ObservableObject{
@@ -30,6 +34,8 @@ class OrderModel: ObservableObject{
         return total
     }
     
+    private var lastID: Int = 0
+
     enum OrderStatus: String, Codable, CaseIterable {
         case pending = "Pending"
         case processing = "Processing"
@@ -43,8 +49,6 @@ class OrderModel: ObservableObject{
         case unpaid = "Unpaid"
         case empty = ""
     }
-    
-    private var lastID: Int = 0
     
     func checkforItemInOrder(_ item: BookItem) -> Bool {
         for orderItem in orderItems {

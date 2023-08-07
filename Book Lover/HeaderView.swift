@@ -1,61 +1,34 @@
-//
-//  HeaderView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 01/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
 struct HeaderView: View {
     @EnvironmentObject var orders: OrderModel
-    @Environment(\.verticalSizeClass) var vSizeClass: UserInterfaceSizeClass?
     
     var body: some View {
         VStack {
-            if (vSizeClass ?? .regular) != .compact {
-                GeometryReader{ geometry in
-                    ZStack (alignment: .topTrailing){
-                        //                            Spacer()
-                        Image("banner1")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: geometry.size.width * 1,height: 140)
-                            .offset(y: -5)
-                            .clipped()
-
-    //                        .ignoresSafeArea()
-                        //                            Spacer()
-//                        Text("Thai Le Book Review")
-//                            .font(.custom("Times", size: 30))
-//    //                        .foregroundColor(Color.indigo)
-//                            .foregroundStyle(.regularMaterial)
-//                            .fontWeight(.semibold)
-                    }
-                }
-            } else {
-                GeometryReader{ geometry in
-                    HStack (alignment: .bottom){
-                        //                            Spacer()
-                        Image("banner1")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: geometry.size.width * 0.6,height: 140)
-                            .clipped()
-
-    //                        .ignoresSafeArea()
-//                        //                            Spacer()
-//                        Text("Thai Le Book Review")
-//                            .font(.custom("Times", size: 30))
-//    //                        .foregroundColor(Color.indigo)
-//                            .foregroundStyle(.pink)
-//                            .fontWeight(.semibold)
-                    }
+            GeometryReader{ geometry in
+                ZStack (alignment: .topTrailing){
+                    Image("banner1")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geometry.size.width * 1,height: 140)
+                        .offset(y: -5)
+                        .clipped()
                 }
             }
-            
-            }
-            .frame(height: 140)
+        }
+        .frame(height: 140)
     }
 }
 

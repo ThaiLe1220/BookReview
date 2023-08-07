@@ -1,9 +1,14 @@
-//
-//  OrderRowView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 01/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
@@ -11,7 +16,6 @@ struct OrderRowView: View {
     
     @Binding var order:OrderItem
     @ObservedObject var orders:OrderModel
-
     @State private var isShowingSheet = false
     
     var body: some View {
@@ -50,7 +54,6 @@ struct OrderRowView: View {
                             .cancel()
                         ]
                     )}
-                
                 Spacer()
                 
                 Text(order.extPrice, format: .currency(code: "VND"))
@@ -62,7 +65,6 @@ struct OrderRowView: View {
         .padding([.trailing, .leading], 8)
         .frame(height: 50)
         .fontDesign(.serif)
-
     }
     
     func removeOrder() {

@@ -1,9 +1,14 @@
-//
-//  WelcomeView.swift
-//  BookApp
-//
-//  Created by Lê Ngọc Trâm on 06/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
@@ -11,7 +16,7 @@ struct WelcomeView: View {
     @State private var pageIndex = 0
     @State var isWelcomeFinished : Bool = false
 
-    private let pages: [Page] = Page.samplePages
+    private let pages: [Page] = Page.welcomePages
     private let dotAppearance = UIPageControl.appearance()
 
     var body: some View {
@@ -47,10 +52,6 @@ struct WelcomeView: View {
                 .animation(.linear(duration: 1), value: pageIndex) // 2
                 .indexViewStyle(.page(backgroundDisplayMode: .interactive))
                 .tabViewStyle(PageTabViewStyle())
-                .onAppear {
-                    dotAppearance.currentPageIndicatorTintColor = .systemGray
-                    dotAppearance.pageIndicatorTintColor = .systemGray6
-                }
                 .fontDesign(.serif)
             }
         }

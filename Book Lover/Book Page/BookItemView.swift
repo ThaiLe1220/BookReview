@@ -1,9 +1,14 @@
-//
-//  MenuItemView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 01/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
@@ -61,8 +66,6 @@ struct BookItemView: View {
                         .onAppear{
                             bookmarked = wishlists.checkforItemInWishList(selectedBookItem)
                         }
-                        
-                        
                         Spacer()
                         
                         VStack {
@@ -70,14 +73,12 @@ struct BookItemView: View {
                                 
                                 VStack (alignment: .leading) {
                                     ZStack (alignment: .leading) {
-                                        NavigationLink (destination: BookDetailView(selectedBookItem: selectedBookItem, orders: orders, wishlists: wishlists)) {
+                                        NavigationLink (destination: BookDetailView(selectedBookItem: selectedBookItem, orders: orders, wishlists: wishlists).padding(.horizontal, 4)) {
                                             Text(selectedBookItem.name)
                                                 .font(.system(size: 16, weight: .semibold))
                                                 .foregroundStyle(Color("SealBrown").opacity(0.8))
                                                 .padding(.leading, -1)
-                                            
                                         }
-                                            
                                     }
                            
                                     Text("By \(selectedBookItem.author)")

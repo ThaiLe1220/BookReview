@@ -1,9 +1,14 @@
-//
-//  MenuView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 01/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
@@ -14,7 +19,6 @@ struct BookListView: View {
     @State private var selectedSortCriteria = BookSortCriteria.nameAsc
     @State private var selectedCategory = BookCategory.empty
 
-    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -102,10 +106,6 @@ private func sortingClosure( criteria: BookSortCriteria,  book1: BookItem, _ boo
         return book1.name < book2.name
     case .nameDesc:
         return book1.name > book2.name
-//    case .idAsc:
-//        return book1.id < book2.id
-//    case .idDesc:
-//        return book1.id > book2.id
     case .priceAsc:
         return book1.price < book2.price
     case .priceDesc:

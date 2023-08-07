@@ -1,9 +1,14 @@
-//
-//  ContentView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 28/07/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
@@ -36,9 +41,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .tabItem {
-                    Label("Browse", systemImage: "square.grid.2x2.fill")
-                }
+                .tabItem {Label("Browse", systemImage: "square.grid.2x2.fill")}
                 .padding(.top, geometry.size.height * 0.05)
                 .tag(0)
 
@@ -46,9 +49,7 @@ struct ContentView: View {
                 VStack {
                     OrderView(orders: orders)
                     }
-                .tabItem {
-                    Label("Order", systemImage: "cart")
-                }
+                .tabItem {Label("Order", systemImage: "cart")}
                 .tag(1)
 
                 /// Search View
@@ -57,22 +58,18 @@ struct ContentView: View {
                 }
                 .padding(.top, geometry.size.height * 0.03)
 
-                .tabItem {
-                    Label("Search", systemImage: "magnifyingglass")
-                }
+                .tabItem {Label("Search", systemImage: "magnifyingglass")}
                 .tag(2)
 
                 /// Wishlist View
-                VStack  {
+                NavigationStack  {
                     HeaderView()
                         .shadow(radius: 4)
                     WhislistView(wishlists: wishlists, books: BookModel().book, selectedItem: $selectedBookItem)
                 }
                 .padding(.top, geometry.size.height * 0.04)
 
-                .tabItem {
-                    Label("Favourite", systemImage: "heart.circle")
-                }
+                .tabItem {Label("Favourite", systemImage: "heart.circle")}
                 .tag(3)
 
             }
@@ -96,33 +93,25 @@ struct ContentView: View {
                         isShowingOrderRecap ? Text(orders.orderTotal, format: .currency(code: "VND"))
                                 .foregroundColor(Color("DarkGold")) : nil
                     }
-
                     
                     Button(action: {
                         isDarkMode.toggle()
-                        
                     }) {
                         Image(systemName: isDarkMode ? "moon" : "lightbulb")
                             .font(.system(size: 22))
                             .foregroundColor(Color("DarkGold"))
                     }
-                    
-
                 }
                 .padding(.horizontal, 8)
                 .padding(.top, 0),
                 alignment: .top
-        )
-        }
-
-        
+        )}
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(book: BookModel().book)
-           
     }
 }
 

@@ -1,10 +1,14 @@
-//
-//  OrderView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 01/08/2023.
-//
-
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 import SwiftUI
 
 struct OrderView: View {
@@ -26,7 +30,6 @@ struct OrderView: View {
                             .foregroundColor(Color("Black"))
                             .font(.system(size: 22, weight: .semibold))
                             .padding(.top, geometry.size.height * -0.03)
-
                     }
                     .navigationTitle(Text("Order"))
                 } else {
@@ -45,7 +48,6 @@ struct OrderView: View {
                 }
             }
             .frame(height: geometry.size.height * 0.999)
-
             .fontDesign(.serif)
         }
 

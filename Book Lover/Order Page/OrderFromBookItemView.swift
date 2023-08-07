@@ -1,14 +1,16 @@
-//
-//  OrderDetailView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 03/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
-
-
-
 
 struct OrderFromBookItemView: View {
     @Binding var orderItem:OrderItem
@@ -83,8 +85,6 @@ struct OrderFromBookItemView: View {
                 .italic()
                 .font(.system(size: 14, weight: .light))
                     
-
-            
                 HStack {
                     Stepper(value: $quantity, in: 1...10 ){
                         Text("\(quantity) " + (quantity == 1 ? "item" : "items"))
@@ -99,13 +99,13 @@ struct OrderFromBookItemView: View {
                         .foregroundColor(Color("OrangePeel"))
                 }
                 
-                Text("Order Name").font(.subheadline).foregroundColor(.secondary)
+                Text("Order Name").font(.subheadline).foregroundColor(Color("SealBrown"))
                 TextField("Create order name for this book (optional)", text: $name)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: Color("SealBrown") , radius: 1)
 
           
-                Text("Comment").font(.subheadline).foregroundColor(.secondary)
+                Text("Comment").font(.subheadline).foregroundColor(Color("SealBrown"))
                 TextEditor(text:$comments)
                     .frame(height: 120)
                     .clipShape(RoundedRectangle(cornerRadius: 4))
@@ -143,16 +143,11 @@ struct OrderFromBookItemView: View {
                 }
                 .padding(.top, 4)
             }
-
-
             .padding(.leading, 8)
             .padding(.trailing, 8)
             .fontDesign(.serif)
-
         }
-        
     }
-    
 }
 
 struct OrderFromBookItemView_Previews: PreviewProvider {

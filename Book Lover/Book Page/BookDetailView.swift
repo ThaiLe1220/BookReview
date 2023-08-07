@@ -1,9 +1,14 @@
-//
-//  MenuDetailView.swift
-//  PizzaApp
-//
-//  Created by Lê Ngọc Trâm on 03/08/2023.
-//
+/*
+  RMIT University Vietnam
+  Course: COSC2659 iOS Development
+  Semester: 2023B
+  Assessment: Assignment 1
+  Author: Le Hong Thai
+  ID: s3752577
+  Created  date: 31/7/2023
+  Last modified: 7/8/2023
+  Acknowledgement: Acknowledge the resources that you use here.
+*/
 
 import SwiftUI
 
@@ -20,112 +25,106 @@ struct BookDetailView: View {
 
     var body: some View {
         GeometryReader{ geometry in
-            VStack (alignment: .leading, spacing: 16){
-                ZStack () {
-                    if let image = UIImage(named: "book\(selectedBookItem.id)"){
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFit()
-                            .cornerRadius(3)
-                            .frame(height: 220)
-                            .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
-                    }
-                    
-                    Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
-                        .onTapGesture {
-                            bookmarked.toggle()
-                            bookmarked ?  wishlists.addWishlist(selectedBookItem) : wishlists.removeWishlist(id: selectedBookItem.id)
+            ScrollView {
+                VStack (alignment: .leading, spacing: 16){
+                    ZStack () {
+                        if let image = UIImage(named: "book\(selectedBookItem.id)"){
+                            Image(uiImage: image)
+                                .resizable()
+                                .scaledToFit()
+                                .cornerRadius(3)
+                                .frame(height: 220)
+                                .shadow(color: Color("DarkGold"), radius: 4, x: 2, y: 2)
                         }
-                        .offset(x: geometry.size.width * -0.45, y: 220 * -0.4)
-                        .font(.system(size: 22))
-                        .foregroundColor(Color("DarkGold"))
-                    
-                    Button {
-                        presentOrderSheet = true
-                        order = OrderItem(id: -1 , item: selectedBookItem, quantity: 1)
-                    } label: {
-                        Image(systemName: orders.checkforItemInOrder(selectedBookItem) ? "cart.fill.badge.plus" : "cart.badge.plus")
+                        
+                        Image(systemName: bookmarked ? "bookmark.fill" : "bookmark")
+                            .onTapGesture {
+                                bookmarked.toggle()
+                                bookmarked ?  wishlists.addWishlist(selectedBookItem) : wishlists.removeWishlist(id: selectedBookItem.id)
+                            }
+                            .offset(x: geometry.size.width * -0.45, y: 220 * -0.4)
                             .font(.system(size: 22))
-                    }
-                    .offset(x: geometry.size.width * 0.43, y: 220 * -0.4)
-                    .disabled(selectedBookItem.id < 0)
-                    .foregroundStyle(Color("OrangePeel"))
-                    .sheet(isPresented: $presentOrderSheet){
+                            .foregroundColor(Color("DarkGold"))
                         
-                    } content: {
-                        OrderFromBookDetailView(orderItem: $order, presentSheet: $presentOrderSheet, newOrder: $newOrder)
+                        Button {
+                            presentOrderSheet = true
+                            order = OrderItem(id: -1 , item: selectedBookItem, quantity: 1)
+                        } label: {
+                            Image(systemName: orders.checkforItemInOrder(selectedBookItem) ? "cart.fill.badge.plus" : "cart.badge.plus")
+                                .font(.system(size: 22))
+                        }
+                        .offset(x: geometry.size.width * 0.43, y: 220 * -0.4)
+                        .disabled(selectedBookItem.id < 0)
+                        .foregroundStyle(Color("OrangePeel"))
+                        .sheet(isPresented: $presentOrderSheet){
+                            
+                        } content: {
+                            OrderFromBookDetailView(orderItem: $order, presentSheet: $presentOrderSheet, newOrder: $newOrder)
+                        }
                     }
-                }
-                .frame(width: geometry.size.width)
+                    .frame(width: geometry.size.width * 0.999)
 
-                VStack (alignment: .leading, spacing: 4) {
-                    Text(selectedBookItem.name)
-                        .foregroundStyle(Color("SealBrown").opacity(0.8))
-                        .font(.system(size: 20, weight: .semibold))
+                    VStack (alignment: .leading, spacing: 4) {
+                        Text(selectedBookItem.name)
+                            .foregroundStyle(Color("SealBrown").opacity(0.8))
+                            .font(.system(size: 20, weight: .semibold))
 
-                    Text("By \(selectedBookItem.author)")
-                        .font(.system(size: 15, weight: .regular)).italic()
-                        .foregroundStyle(Color("SealBrown").opacity(0.8))
+                        Text("By \(selectedBookItem.author)")
+                            .font(.system(size: 15, weight: .regular)).italic()
+                            .foregroundStyle(Color("SealBrown").opacity(0.8))
 
-                    HStack (alignment: .center) {
-                        RatingsView(rating: selectedBookItem.rating)
-                            .font(.system(size: 13, weight: .regular))
+                        HStack (alignment: .center) {
+                            RatingsView(rating: selectedBookItem.rating)
+                                .font(.system(size: 13, weight: .regular))
 
-                        Text("\(selectedBookItem.rating)")
-                            .font(.system(size: 13, weight: .semibold))
+                            Text("\(selectedBookItem.rating)")
+                                .font(.system(size: 13, weight: .semibold))
 
+                            Spacer()
+                            
+                            Text(selectedBookItem.price, format: .currency(code: "VND"))
+                                .font(.system(size: 15, weight: .bold))
+                                .foregroundStyle(Color("OrangePeel"))
+                            
+                        }
+                        .padding(.leading, 6)
+                    }
+
+                    HStack {
+                        Text("Category:")
+                        Text(selectedBookItem.category.rawValue)
                         Spacer()
-                        
-                        Text(selectedBookItem.price, format: .currency(code: "VND"))
-                            .font(.system(size: 15, weight: .bold))
-                            .foregroundStyle(Color("OrangePeel"))
-                        
                     }
-                    .padding(.leading, 6)
-                }
-
-                    
-                    
-                
-                HStack {
-                    Text("Category:")
-                    Text(selectedBookItem.category.rawValue)
-                    Spacer()
-                }
-                .italic()
-                .font(.system(size: 14))
-                .foregroundStyle(Color("SealBrown").opacity(0.8))
-
-                HStack {
-                    Text("Format:")
-                    Text(selectedBookItem.format.rawValue)
-                    Spacer()
-                }
-                .italic()
-                .font(.system(size: 14))
-                .foregroundStyle(Color("SealBrown").opacity(0.8))
-
-
-                Text(selectedBookItem.headline)
-                    .font(.system(size: 14, weight: .semibold))
+                    .italic()
+                    .font(.system(size: 14))
                     .foregroundStyle(Color("SealBrown").opacity(0.8))
-                    .frame(width: geometry.size.width)
-                    .padding(.leading, -8)
-                
-                
-                Text(selectedBookItem.description)
+
+                    HStack {
+                        Text("Format:")
+                        Text(selectedBookItem.format.rawValue)
+                        Spacer()
+                    }
+                    .italic()
+                    .font(.system(size: 14))
                     .foregroundStyle(Color("SealBrown").opacity(0.8))
-                    .font(.system(size: 14, weight: .regular))
-                
+
+                    Text(selectedBookItem.headline)
+                        .font(.system(size: 14, weight: .semibold))
+                        .foregroundStyle(Color("SealBrown").opacity(0.8))
+                        .frame(width: geometry.size.width)
+                        .padding(.leading, -4)
+
+                    Text(selectedBookItem.description)
+                        .foregroundStyle(Color("SealBrown").opacity(0.8))
+                        .font(.system(size: 14, weight: .regular))
+                }
             }
+
         }
         .onAppear(perform: {
             bookmarked = wishlists.checkforItemInWishList(selectedBookItem)
         })
-
         .fontDesign(.serif)
-        
-        
     }
 
 }
