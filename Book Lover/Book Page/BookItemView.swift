@@ -70,10 +70,14 @@ struct BookItemView: View {
                                 
                                 VStack (alignment: .leading) {
                                     ZStack (alignment: .leading) {
-                                        Text(selectedBookItem.name)
-                                            .font(.system(size: 17, weight: .semibold))
-                                            .foregroundStyle(Color("SealBrown").opacity(0.8))
-                                            .padding(.leading, -1)
+                                        NavigationLink (destination: BookDetailView(selectedBookItem: selectedBookItem, orders: orders, wishlists: wishlists)) {
+                                            Text(selectedBookItem.name)
+                                                .font(.system(size: 16, weight: .semibold))
+                                                .foregroundStyle(Color("SealBrown").opacity(0.8))
+                                                .padding(.leading, -1)
+                                            
+                                        }
+                                            
                                     }
                            
                                     Text("By \(selectedBookItem.author)")

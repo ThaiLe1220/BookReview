@@ -25,7 +25,7 @@ struct ContentView: View {
         GeometryReader { geometry in
             TabView (selection: $selectedTab){
                 /// Browse View
-                VStack  {
+                NavigationStack  {
                     BookListView(book: book, selectedItem: $selectedBookItem)
                         .padding([.leading, .trailing], -8)
                     
