@@ -27,9 +27,9 @@ struct BookLoverApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SplashView()
-                .preferredColorScheme(.dark)
-            
+//            SplashView()
+//                .preferredColorScheme(.dark)
+            TestBEView()
         }
 
     }
