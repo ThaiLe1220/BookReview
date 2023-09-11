@@ -24,7 +24,7 @@ struct ContentView: View {
     @State private var selectedTab = 0
 
 
-    @State private var isDarkMode = true
+    @State private var isDarkMode = false
 
     var body: some View {
         GeometryReader { geometry in
