@@ -183,6 +183,7 @@ struct SignUpView: View {
         return emailTest.evaluate(with: email)
     }
     
+    // Function to handle user sign up
     func signUp() {
         Auth.auth().createUser(withEmail: email, password: password) {authResult, error in
             if let error = error {
@@ -192,12 +193,6 @@ struct SignUpView: View {
                 signUpSuccess = true
             }
         }
-    }
-    
-    func validateEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
-        return emailTest.evaluate(with: email)
     }
 
 }
@@ -228,6 +223,7 @@ struct SignInView: View {
         }
     }
     
+    // Function to handle user sign in
     func signIn() {
         Auth.auth().signIn(withEmail: email, password: password) { (result,error) in
             if let error = error {
@@ -250,6 +246,7 @@ struct ProfileView: View {
         .padding()
     }
     
+    // function to handle user sign out
     func signOut() {
         do {
             try Auth.auth().signOut()
