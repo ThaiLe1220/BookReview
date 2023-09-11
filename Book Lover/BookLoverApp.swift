@@ -29,7 +29,7 @@ struct BookLoverApp: App {
         WindowGroup {
 //            SplashView()
 //                .preferredColorScheme(.dark)
-            TestBEView()
+        
         }
 
     }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct UserContentView: View {
     var body: some View {
@@ -27,6 +28,7 @@ struct SignUpView: View {
     @State private var isEmailFocused: Bool = false
     @State private var isPasswordFocused: Bool = false
     @State private var isConfirmPasswordFocused: Bool = false
+    @State private var signUpSuccess = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -158,7 +160,7 @@ struct SignUpView: View {
                 .frame(width: geometry.size.width * 0.8)
                 
                 Button("Sign Up") {
-                    // Handle sign up
+                    signUp()
                 }
                 .foregroundColor(.black)
                 .disabled(!isValidEmail || !passwordsMatch || password.isEmpty || confirmPassword.isEmpty)
@@ -180,12 +182,23 @@ struct SignUpView: View {
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegex)
         return emailTest.evaluate(with: email)
     }
-
+    
+    func signUp() {
+        Auth.auth().createUser(withEmail: email, password: password) {authResult, error in
+            if let error = error {
+                print("Error creating user: \(error.localizedDescription)")
+            } else {
+                print("User created successfully")
+                signUpSuccess = true
+            }
+        }
+    }
 }
 
 struct SignInView: View {
     @State private var email: String = ""
     @State private var password: String = ""
+    @State private var signInSuccess = false
 
     var body: some View {
         VStack {
@@ -198,7 +211,7 @@ struct SignInView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
 
             Button("Sign In") {
-                // Handle sign in
+                signIn()
             }
             .padding()
 
@@ -207,14 +220,36 @@ struct SignInView: View {
             }
         }
     }
+    
+    func signIn() {
+        Auth.auth().signIn(withEmail: email, password: password) { (result,error) in
+            if let error = error {
+                print("Error signing in user: \(error.localizedDescription)")
+            } else {
+                print("User Signed In")
+                signInSuccess = true
+            }
+        }
+    }
 }
 
 struct ProfileView: View {
+    @State private var isSignedOut = false
     var body: some View {
         Button("Sign Out") {
             // Handle sign out
+            signOut()
         }
         .padding()
+    }
+    
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+            isSignedOut = true
+        } catch let signOutError as NSError {
+            print("Error signing out: \(signOutError.localizedDescription)")
+        }
     }
 }
 
